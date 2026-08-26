@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScreenPen
+namespace ScreenPen.GUI
 {
-    public partial class Form1 : Form
+    public partial class FrmOverlayCanvas : FormCanvas
     {
-        public Form1()
+        public FrmOverlayCanvas()
         {
             InitializeComponent();
         }

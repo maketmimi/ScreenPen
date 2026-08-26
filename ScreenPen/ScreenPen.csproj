@@ -46,14 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Core\ICanvas.cs" />
+    <Compile Include="Core\IRedoable.cs" />
+    <Compile Include="Core\IUndoable.cs" />
+    <Compile Include="GUI\FormCanvas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\FormCanvas.Designer.cs">
+      <DependentUpon>FormCanvas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCanvasToolsPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCanvasToolsPanel.Designer.cs">
+      <DependentUpon>FrmCanvasToolsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmOverlayCanvas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmOverlayCanvas.Designer.cs">
+      <DependentUpon>FrmOverlayCanvas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmScreenshotCanvas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmScreenshotCanvas.Designer.cs">
+      <DependentUpon>FrmScreenshotCanvas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\FormCanvas.resx">
+      <DependentUpon>FormCanvas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCanvasToolsPanel.resx">
+      <DependentUpon>FrmCanvasToolsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmOverlayCanvas.resx">
+      <DependentUpon>FrmOverlayCanvas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +114,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AppIcon.png" />
+    <Content Include="Assets\close.png" />
+    <Content Include="Assets\Save.png" />
+    <Content Include="Assets\pen.ico" />
+    <Content Include="Assets\redo.png" />
+    <Content Include="Assets\undo.png" />
+    <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
