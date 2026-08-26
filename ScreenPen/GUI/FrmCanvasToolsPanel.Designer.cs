@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCanvasToolsPanel));
             this.PnlCurrentColorSwatch = new System.Windows.Forms.Panel();
-            this.RbBlack = new System.Windows.Forms.RadioButton();
-            this.RbRed = new System.Windows.Forms.RadioButton();
-            this.RbBlue = new System.Windows.Forms.RadioButton();
-            this.RbGreen = new System.Windows.Forms.RadioButton();
             this.NudPenWidth = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnUndo = new System.Windows.Forms.Button();
@@ -46,6 +42,10 @@
             this.BtnCloseCanvas = new System.Windows.Forms.Button();
             this.BtnSaveCanvas = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PnlRedSwatch = new System.Windows.Forms.Panel();
+            this.PnlGreenSwatch = new System.Windows.Forms.Panel();
+            this.PnlBlueSwatch = new System.Windows.Forms.Panel();
+            this.PnlBlackSwatch = new System.Windows.Forms.Panel();
             this.MainColorDialog = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.NudPenWidth)).BeginInit();
             this.PnlActions.SuspendLayout();
@@ -61,76 +61,7 @@
             this.PnlCurrentColorSwatch.Name = "PnlCurrentColorSwatch";
             this.PnlCurrentColorSwatch.Size = new System.Drawing.Size(40, 40);
             this.PnlCurrentColorSwatch.TabIndex = 0;
-            // 
-            // RbBlack
-            // 
-            this.RbBlack.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RbBlack.BackColor = System.Drawing.Color.Black;
-            this.RbBlack.Checked = true;
-            this.RbBlack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RbBlack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.RbBlack.FlatAppearance.BorderSize = 3;
-            this.RbBlack.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.RbBlack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.RbBlack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.RbBlack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RbBlack.Location = new System.Drawing.Point(265, 9);
-            this.RbBlack.Name = "RbBlack";
-            this.RbBlack.Size = new System.Drawing.Size(30, 30);
-            this.RbBlack.TabIndex = 1;
-            this.RbBlack.TabStop = true;
-            this.RbBlack.UseVisualStyleBackColor = false;
-            // 
-            // RbRed
-            // 
-            this.RbRed.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RbRed.BackColor = System.Drawing.Color.Red;
-            this.RbRed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RbRed.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.RbRed.FlatAppearance.BorderSize = 3;
-            this.RbRed.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
-            this.RbRed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.RbRed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.RbRed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RbRed.Location = new System.Drawing.Point(230, 9);
-            this.RbRed.Name = "RbRed";
-            this.RbRed.Size = new System.Drawing.Size(30, 30);
-            this.RbRed.TabIndex = 2;
-            this.RbRed.UseVisualStyleBackColor = false;
-            // 
-            // RbBlue
-            // 
-            this.RbBlue.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RbBlue.BackColor = System.Drawing.Color.Blue;
-            this.RbBlue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RbBlue.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.RbBlue.FlatAppearance.BorderSize = 3;
-            this.RbBlue.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
-            this.RbBlue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.RbBlue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.RbBlue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RbBlue.Location = new System.Drawing.Point(300, 9);
-            this.RbBlue.Name = "RbBlue";
-            this.RbBlue.Size = new System.Drawing.Size(30, 30);
-            this.RbBlue.TabIndex = 3;
-            this.RbBlue.UseVisualStyleBackColor = false;
-            // 
-            // RbGreen
-            // 
-            this.RbGreen.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RbGreen.BackColor = System.Drawing.Color.Green;
-            this.RbGreen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RbGreen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.RbGreen.FlatAppearance.BorderSize = 3;
-            this.RbGreen.FlatAppearance.CheckedBackColor = System.Drawing.Color.Green;
-            this.RbGreen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
-            this.RbGreen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.RbGreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RbGreen.Location = new System.Drawing.Point(195, 9);
-            this.RbGreen.Name = "RbGreen";
-            this.RbGreen.Size = new System.Drawing.Size(30, 30);
-            this.RbGreen.TabIndex = 4;
-            this.RbGreen.UseVisualStyleBackColor = false;
+            this.PnlCurrentColorSwatch.DoubleClick += new System.EventHandler(this.PnlCurrentColorSwatch_DoubleClick);
             // 
             // NudPenWidth
             // 
@@ -164,6 +95,7 @@
             0,
             0,
             0});
+            this.NudPenWidth.ValueChanged += new System.EventHandler(this.NudPenWidth_ValueChanged);
             // 
             // label1
             // 
@@ -215,6 +147,7 @@
             this.BtnRedo.Size = new System.Drawing.Size(36, 32);
             this.BtnRedo.TabIndex = 9;
             this.BtnRedo.UseVisualStyleBackColor = true;
+            this.BtnRedo.Click += new System.EventHandler(this.BtnRedo_Click);
             // 
             // PnlActions
             // 
@@ -259,6 +192,7 @@
             this.BtnCloseCanvas.Size = new System.Drawing.Size(36, 32);
             this.BtnCloseCanvas.TabIndex = 11;
             this.BtnCloseCanvas.UseVisualStyleBackColor = true;
+            this.BtnCloseCanvas.Click += new System.EventHandler(this.BtnCloseCanvas_Click);
             // 
             // BtnSaveCanvas
             // 
@@ -275,23 +209,68 @@
             this.BtnSaveCanvas.Size = new System.Drawing.Size(36, 32);
             this.BtnSaveCanvas.TabIndex = 10;
             this.BtnSaveCanvas.UseVisualStyleBackColor = true;
+            this.BtnSaveCanvas.Click += new System.EventHandler(this.BtnSaveCanvas_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.ContextMenuStrip = this.CmsMain;
+            this.panel1.Controls.Add(this.PnlRedSwatch);
+            this.panel1.Controls.Add(this.PnlGreenSwatch);
+            this.panel1.Controls.Add(this.PnlBlueSwatch);
+            this.panel1.Controls.Add(this.PnlBlackSwatch);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.PnlCurrentColorSwatch);
             this.panel1.Controls.Add(this.NudPenWidth);
-            this.panel1.Controls.Add(this.RbBlack);
-            this.panel1.Controls.Add(this.RbGreen);
-            this.panel1.Controls.Add(this.RbRed);
-            this.panel1.Controls.Add(this.RbBlue);
             this.panel1.Location = new System.Drawing.Point(12, 7);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(387, 51);
             this.panel1.TabIndex = 11;
+            // 
+            // PnlRedSwatch
+            // 
+            this.PnlRedSwatch.BackColor = System.Drawing.Color.Red;
+            this.PnlRedSwatch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PnlRedSwatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PnlRedSwatch.Location = new System.Drawing.Point(198, 9);
+            this.PnlRedSwatch.Name = "PnlRedSwatch";
+            this.PnlRedSwatch.Size = new System.Drawing.Size(30, 30);
+            this.PnlRedSwatch.TabIndex = 4;
+            this.PnlRedSwatch.Click += new System.EventHandler(this.QuickColor_Click);
+            // 
+            // PnlGreenSwatch
+            // 
+            this.PnlGreenSwatch.BackColor = System.Drawing.Color.Green;
+            this.PnlGreenSwatch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PnlGreenSwatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PnlGreenSwatch.Location = new System.Drawing.Point(233, 9);
+            this.PnlGreenSwatch.Name = "PnlGreenSwatch";
+            this.PnlGreenSwatch.Size = new System.Drawing.Size(30, 30);
+            this.PnlGreenSwatch.TabIndex = 3;
+            this.PnlGreenSwatch.Click += new System.EventHandler(this.QuickColor_Click);
+            // 
+            // PnlBlueSwatch
+            // 
+            this.PnlBlueSwatch.BackColor = System.Drawing.Color.Blue;
+            this.PnlBlueSwatch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PnlBlueSwatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PnlBlueSwatch.Location = new System.Drawing.Point(268, 9);
+            this.PnlBlueSwatch.Name = "PnlBlueSwatch";
+            this.PnlBlueSwatch.Size = new System.Drawing.Size(30, 30);
+            this.PnlBlueSwatch.TabIndex = 2;
+            this.PnlBlueSwatch.Click += new System.EventHandler(this.QuickColor_Click);
+            // 
+            // PnlBlackSwatch
+            // 
+            this.PnlBlackSwatch.BackColor = System.Drawing.Color.Black;
+            this.PnlBlackSwatch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PnlBlackSwatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PnlBlackSwatch.Location = new System.Drawing.Point(303, 9);
+            this.PnlBlackSwatch.Name = "PnlBlackSwatch";
+            this.PnlBlackSwatch.Size = new System.Drawing.Size(30, 30);
+            this.PnlBlackSwatch.TabIndex = 1;
+            this.PnlBlackSwatch.Click += new System.EventHandler(this.QuickColor_Click);
             // 
             // FrmCanvasToolsPanel
             // 
@@ -321,10 +300,6 @@
         #endregion
 
         private System.Windows.Forms.Panel PnlCurrentColorSwatch;
-        private System.Windows.Forms.RadioButton RbBlack;
-        private System.Windows.Forms.RadioButton RbRed;
-        private System.Windows.Forms.RadioButton RbBlue;
-        private System.Windows.Forms.RadioButton RbGreen;
         private System.Windows.Forms.NumericUpDown NudPenWidth;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnUndo;
@@ -337,5 +312,9 @@
         private System.Windows.Forms.ContextMenuStrip CmsMain;
         private System.Windows.Forms.ToolStripMenuItem dockToAboveToolStripMenuItem;
         private System.Windows.Forms.ColorDialog MainColorDialog;
+        private System.Windows.Forms.Panel PnlRedSwatch;
+        private System.Windows.Forms.Panel PnlGreenSwatch;
+        private System.Windows.Forms.Panel PnlBlueSwatch;
+        private System.Windows.Forms.Panel PnlBlackSwatch;
     }
 }

@@ -3,7 +3,7 @@ using System.Drawing.Imaging;
 
 namespace ScreenPen.Core
 {
-    internal interface ICanvas : IUndoable, IRedoable
+    public interface ICanvas : IUndoable, IRedoable
     {
         void SetPenWidthTo(float NewWidth);
         void SetPenColorTo(Color NewColor);

@@ -1,6 +1,6 @@
 ﻿namespace ScreenPen.Core
 {
-    internal interface IUndoable
+    public interface IUndoable
     {
         void Undo();
 

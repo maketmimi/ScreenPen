@@ -1,6 +1,6 @@
 ﻿namespace ScreenPen.Core
 {
-    internal interface IRedoable
+    public interface IRedoable
     {
         void Redo();
         bool CanRedo();
