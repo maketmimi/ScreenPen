@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\FormCanvasStroke.cs" />
     <Compile Include="Core\ICanvas.cs" />
     <Compile Include="Core\IRedoable.cs" />
     <Compile Include="Core\IUndoable.cs" />
+    <Compile Include="Core\Stroke.cs" />
     <Compile Include="GUI\FormCanvas.cs">
       <SubType>Form</SubType>
     </Compile>

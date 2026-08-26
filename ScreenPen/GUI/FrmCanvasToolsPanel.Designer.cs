@@ -160,7 +160,7 @@
             this.NudPenWidth.TabIndex = 5;
             this.NudPenWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NudPenWidth.Value = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
             0});
@@ -235,6 +235,7 @@
             this.CmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dockToAboveToolStripMenuItem});
             this.CmsMain.Name = "CmsMain";
+            this.CmsMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.CmsMain.Size = new System.Drawing.Size(154, 26);
             // 
             // dockToAboveToolStripMenuItem
