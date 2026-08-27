@@ -1,22 +1,16 @@
 ﻿using ScreenPen.Core;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ScreenPen.GUI
 {
     public partial class FrmCanvasToolsPanel : Form
     {
-        private readonly ICanvas _Canvas; 
+        private readonly ICanvas _Canvas;
+        private bool _ClosedByXButton = true;
 
         public FrmCanvasToolsPanel(ICanvas Canvas)
         {
@@ -76,7 +70,51 @@ namespace ScreenPen.GUI
 
         private void BtnRedo_Click(object sender, EventArgs e)
         {
+            _Canvas.Redo();
+        }
 
+        private void BtnUndo_Click(object sender, EventArgs e)
+        {
+            _Canvas.Undo();
+        }
+
+        private void CloseToolsPanel()
+        {
+            _ClosedByXButton = false;
+            this.Close();
+        }
+
+        private void FrmCanvasToolsPanel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_ClosedByXButton)
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
+        }
+
+        private void DockToolsPanelToAboveCenter()
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            int ScreenCenterX = Screen.PrimaryScreen.Bounds.Size.Width / 2;
+            int PanelHalfWidth = this.Size.Width / 2;
+            int PanelNewX = ScreenCenterX - PanelHalfWidth;
+
+            this.Location = new Point(PanelNewX, 0);
+        }
+
+        private void UnDockToolsPanel()
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+        }
+
+        private void dockToAboveToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dockToAboveToolStripMenuItem.Checked)
+                DockToolsPanelToAboveCenter();
+            else
+                UnDockToolsPanel();
         }
     }
 }

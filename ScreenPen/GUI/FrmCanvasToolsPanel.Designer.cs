@@ -122,6 +122,7 @@
             this.BtnUndo.Size = new System.Drawing.Size(36, 32);
             this.BtnUndo.TabIndex = 8;
             this.BtnUndo.UseVisualStyleBackColor = true;
+            this.BtnUndo.Click += new System.EventHandler(this.BtnUndo_Click);
             // 
             // ImgMain
             // 
@@ -169,13 +170,15 @@
             this.dockToAboveToolStripMenuItem});
             this.CmsMain.Name = "CmsMain";
             this.CmsMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.CmsMain.Size = new System.Drawing.Size(154, 26);
+            this.CmsMain.Size = new System.Drawing.Size(181, 48);
             // 
             // dockToAboveToolStripMenuItem
             // 
+            this.dockToAboveToolStripMenuItem.CheckOnClick = true;
             this.dockToAboveToolStripMenuItem.Name = "dockToAboveToolStripMenuItem";
-            this.dockToAboveToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.dockToAboveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dockToAboveToolStripMenuItem.Text = "Dock to above ";
+            this.dockToAboveToolStripMenuItem.CheckedChanged += new System.EventHandler(this.dockToAboveToolStripMenuItem_CheckedChanged);
             // 
             // BtnCloseCanvas
             // 
@@ -288,6 +291,7 @@
             this.Name = "FrmCanvasToolsPanel";
             this.ShowInTaskbar = false;
             this.Text = "Tools Panel";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCanvasToolsPanel_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.NudPenWidth)).EndInit();
             this.PnlActions.ResumeLayout(false);
             this.CmsMain.ResumeLayout(false);
