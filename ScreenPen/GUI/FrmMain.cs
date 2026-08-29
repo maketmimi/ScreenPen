@@ -18,15 +18,10 @@ namespace ScreenPen.GUI
         private ICanvas GetSelectedCanvasTypeObject()
         {
             FrmOverlayCanvas Canvas = new FrmOverlayCanvas();
-            Canvas.VisibleChanged += Canvas_VisibleChanged;
+            Canvas.ShowMainFormWhenCanvasIsHidden(this);
             return Canvas;
             // rest of logic here
             // do not forget to unsbuscreibe
-        }
-
-        private void Canvas_VisibleChanged(object sender, EventArgs e)
-        {
-            this.Visible = !_Canvas.IsCanvasVisibile();
         }
 
         private void LibMalekGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -53,6 +48,7 @@ namespace ScreenPen.GUI
 
         private void StartDrawing_Click(object sender, EventArgs e)
         {
+            this.Hide();
             _Canvas.ShowCanvas();
         }
     }

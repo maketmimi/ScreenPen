@@ -33,6 +33,19 @@ namespace ScreenPen.GUI
                 return _ScreenToShowCanvasOn;
             }
         }
+        private Form _MainForm = null;
+        private Form MainForm
+        {
+            set
+            {
+                Canvas._MainForm = value;
+            }
+
+            get
+            {
+                return Canvas._MainForm;
+            }
+        }
 
         protected bool _IsChild = false;
         protected readonly FormCanvas ParentCanvas = null;
@@ -400,6 +413,22 @@ namespace ScreenPen.GUI
         public void CloseCanvas()
         {
             this.Close();
+        }
+
+        public void ShowMainFormWhenCanvasIsHidden(Form MainForm)
+        {
+            this.MainForm = MainForm;
+            Canvas.VisibleChanged += MainFormHandeling;
+        }
+
+        private void MainFormHandeling(object sender, EventArgs e)
+        {
+            // this must be like this , cuz it says ahow when hidden AND DOES NOT SAY HIDE WHEN SHOWN
+            if (!IsCanvasVisibile())
+            {
+                if (MainForm != null && !MainForm.IsDisposed)
+                    MainForm.Show();
+            }
         }
     }
 }

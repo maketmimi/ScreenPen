@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Windows.Forms;
 
 namespace ScreenPen.Core
 {
@@ -15,5 +16,6 @@ namespace ScreenPen.Core
         bool IsCanvasVisibile();
         void ResetCanvas();
         void CloseCanvas();
+        void ShowMainFormWhenCanvasIsHidden(Form MainForm);
     }
 }
