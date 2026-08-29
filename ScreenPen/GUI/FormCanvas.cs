@@ -46,6 +46,19 @@ namespace ScreenPen.GUI
                 return Canvas._MainForm;
             }
         }
+        private bool _IsClosedByCode = false;
+        private bool IsClosedByCode
+        {
+            set
+            {
+                Canvas._IsClosedByCode = value;
+            }
+
+            get
+            {
+                return Canvas._IsClosedByCode;
+            }
+        }
 
         protected bool _IsChild = false;
         protected readonly FormCanvas ParentCanvas = null;
@@ -412,7 +425,8 @@ namespace ScreenPen.GUI
 
         public void CloseCanvas()
         {
-            this.Close();
+            IsClosedByCode = true;
+            Canvas.Close();
         }
 
         public void ShowMainFormWhenCanvasIsHidden(Form MainForm)
@@ -428,6 +442,15 @@ namespace ScreenPen.GUI
             {
                 if (MainForm != null && !MainForm.IsDisposed)
                     MainForm.Show();
+            }
+        }
+
+        private void FormCanvas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!IsClosedByCode)
+            {
+                e.Cancel = true;
+                HideCanvas();
             }
         }
     }
