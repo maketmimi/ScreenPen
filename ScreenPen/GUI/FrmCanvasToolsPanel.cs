@@ -116,5 +116,10 @@ namespace ScreenPen.GUI
             else
                 UnDockToolsPanel();
         }
+
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+            _Canvas.ResetCanvas();
+        }
     }
 }

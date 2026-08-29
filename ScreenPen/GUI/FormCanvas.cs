@@ -147,6 +147,7 @@ namespace ScreenPen.GUI
 
         protected virtual FormCanvas CreateChildCanvas(FormCanvas ParentCanvas, Screen CanvasScreen)
         {
+            // this is not implemented , it should be implemented in the child classes
             return null;
         }
 
@@ -349,7 +350,7 @@ namespace ScreenPen.GUI
             redoToolStripMenuItem.Enabled = CanRedo();
         }
 
-        private void ResetCanvas()
+        public void ResetCanvas()
         {
             ClearAllCanvasBitmaps();
             Canvas.LUndoList.Clear();
@@ -394,6 +395,11 @@ namespace ScreenPen.GUI
         {
             foreach (ToolStripItem item in actionsToolStripMenuItem.DropDownItems)
                 item.Enabled = true;
+        }
+
+        public void CloseCanvas()
+        {
+            this.Close();
         }
     }
 }

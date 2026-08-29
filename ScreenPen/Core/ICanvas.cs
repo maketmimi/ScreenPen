@@ -13,5 +13,7 @@ namespace ScreenPen.Core
         void HideCanvas();
         void ShowCanvas();
         bool IsCanvasVisibile();
+        void ResetCanvas();
+        void CloseCanvas();
     }
 }

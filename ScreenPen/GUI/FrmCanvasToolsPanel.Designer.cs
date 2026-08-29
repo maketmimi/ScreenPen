@@ -47,6 +47,7 @@
             this.PnlBlueSwatch = new System.Windows.Forms.Panel();
             this.PnlBlackSwatch = new System.Windows.Forms.Panel();
             this.MainColorDialog = new System.Windows.Forms.ColorDialog();
+            this.BtnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NudPenWidth)).BeginInit();
             this.PnlActions.SuspendLayout();
             this.CmsMain.SuspendLayout();
@@ -117,7 +118,7 @@
             this.BtnUndo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.BtnUndo.ImageKey = "undo.png";
             this.BtnUndo.ImageList = this.ImgMain;
-            this.BtnUndo.Location = new System.Drawing.Point(6, 8);
+            this.BtnUndo.Location = new System.Drawing.Point(3, 8);
             this.BtnUndo.Name = "BtnUndo";
             this.BtnUndo.Size = new System.Drawing.Size(36, 32);
             this.BtnUndo.TabIndex = 8;
@@ -132,6 +133,7 @@
             this.ImgMain.Images.SetKeyName(1, "undo.png");
             this.ImgMain.Images.SetKeyName(2, "Save.png");
             this.ImgMain.Images.SetKeyName(3, "close.png");
+            this.ImgMain.Images.SetKeyName(4, "reset.png");
             // 
             // BtnRedo
             // 
@@ -143,7 +145,7 @@
             this.BtnRedo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.BtnRedo.ImageKey = "redo.png";
             this.BtnRedo.ImageList = this.ImgMain;
-            this.BtnRedo.Location = new System.Drawing.Point(48, 8);
+            this.BtnRedo.Location = new System.Drawing.Point(42, 8);
             this.BtnRedo.Name = "BtnRedo";
             this.BtnRedo.Size = new System.Drawing.Size(36, 32);
             this.BtnRedo.TabIndex = 9;
@@ -155,13 +157,14 @@
             this.PnlActions.BackColor = System.Drawing.Color.Transparent;
             this.PnlActions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PnlActions.ContextMenuStrip = this.CmsMain;
+            this.PnlActions.Controls.Add(this.BtnReset);
             this.PnlActions.Controls.Add(this.BtnCloseCanvas);
             this.PnlActions.Controls.Add(this.BtnSaveCanvas);
             this.PnlActions.Controls.Add(this.BtnRedo);
             this.PnlActions.Controls.Add(this.BtnUndo);
-            this.PnlActions.Location = new System.Drawing.Point(405, 7);
+            this.PnlActions.Location = new System.Drawing.Point(402, 7);
             this.PnlActions.Name = "PnlActions";
-            this.PnlActions.Size = new System.Drawing.Size(176, 51);
+            this.PnlActions.Size = new System.Drawing.Size(200, 51);
             this.PnlActions.TabIndex = 10;
             // 
             // CmsMain
@@ -190,7 +193,7 @@
             this.BtnCloseCanvas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.BtnCloseCanvas.ImageKey = "close.png";
             this.BtnCloseCanvas.ImageList = this.ImgMain;
-            this.BtnCloseCanvas.Location = new System.Drawing.Point(132, 8);
+            this.BtnCloseCanvas.Location = new System.Drawing.Point(159, 8);
             this.BtnCloseCanvas.Name = "BtnCloseCanvas";
             this.BtnCloseCanvas.Size = new System.Drawing.Size(36, 32);
             this.BtnCloseCanvas.TabIndex = 11;
@@ -207,7 +210,7 @@
             this.BtnSaveCanvas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.BtnSaveCanvas.ImageKey = "Save.png";
             this.BtnSaveCanvas.ImageList = this.ImgMain;
-            this.BtnSaveCanvas.Location = new System.Drawing.Point(90, 8);
+            this.BtnSaveCanvas.Location = new System.Drawing.Point(120, 8);
             this.BtnSaveCanvas.Name = "BtnSaveCanvas";
             this.BtnSaveCanvas.Size = new System.Drawing.Size(36, 32);
             this.BtnSaveCanvas.TabIndex = 10;
@@ -226,7 +229,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.PnlCurrentColorSwatch);
             this.panel1.Controls.Add(this.NudPenWidth);
-            this.panel1.Location = new System.Drawing.Point(12, 7);
+            this.panel1.Location = new System.Drawing.Point(9, 7);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(387, 51);
             this.panel1.TabIndex = 11;
@@ -275,12 +278,29 @@
             this.PnlBlackSwatch.TabIndex = 1;
             this.PnlBlackSwatch.Click += new System.EventHandler(this.QuickColor_Click);
             // 
+            // BtnReset
+            // 
+            this.BtnReset.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.BtnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnReset.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.BtnReset.ImageKey = "reset.png";
+            this.BtnReset.ImageList = this.ImgMain;
+            this.BtnReset.Location = new System.Drawing.Point(81, 8);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(36, 32);
+            this.BtnReset.TabIndex = 12;
+            this.BtnReset.UseVisualStyleBackColor = true;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            // 
             // FrmCanvasToolsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(593, 64);
+            this.ClientSize = new System.Drawing.Size(611, 64);
             this.ContextMenuStrip = this.CmsMain;
             this.Controls.Add(this.PnlActions);
             this.Controls.Add(this.panel1);
@@ -321,5 +341,6 @@
         private System.Windows.Forms.Panel PnlGreenSwatch;
         private System.Windows.Forms.Panel PnlBlueSwatch;
         private System.Windows.Forms.Panel PnlBlackSwatch;
+        private System.Windows.Forms.Button BtnReset;
     }
 }
