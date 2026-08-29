@@ -23,6 +23,13 @@ namespace ScreenPen.Core
                 StrokePen.Color = value;
             }
         }
+        public int PointsCount
+        {
+            get
+            {
+                return _LPoints.Count;
+            }
+        }
 
         public void AddPoint(Point PointToAdd)
         {

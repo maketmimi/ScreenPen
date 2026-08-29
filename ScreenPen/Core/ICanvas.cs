@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace ScreenPen.Core
@@ -11,5 +12,6 @@ namespace ScreenPen.Core
         void SaveCanvas(string FolderPath, ImageFormat ImageType);
         void HideCanvas();
         void ShowCanvas();
+        bool IsCanvasVisibile();
     }
 }

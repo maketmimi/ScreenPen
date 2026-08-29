@@ -33,15 +33,14 @@
             this.MsrMain = new System.Windows.Forms.MenuStrip();
             this.appToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showSavedCanvasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dockToAboveCenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LibMalekGithub = new System.Windows.Forms.LinkLabel();
             this.ImgMain = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.RbOverlayCanvas = new System.Windows.Forms.RadioButton();
             this.RbScreenshotCanvas = new System.Windows.Forms.RadioButton();
+            this.RbOverlayCanvas = new System.Windows.Forms.RadioButton();
             this.BtnStartDrawing = new System.Windows.Forms.Button();
             this.MsrMain.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,12 +73,20 @@
             this.showSavedCanvasesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.showSavedCanvasesToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.showSavedCanvasesToolStripMenuItem.Text = "Show Saved Canvases";
+            this.showSavedCanvasesToolStripMenuItem.Click += new System.EventHandler(this.showSavedCanvasesToolStripMenuItem_Click);
+            // 
+            // startDrawingToolStripMenuItem
+            // 
+            this.startDrawingToolStripMenuItem.Name = "startDrawingToolStripMenuItem";
+            this.startDrawingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.startDrawingToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.startDrawingToolStripMenuItem.Text = "Start Drawing";
+            this.startDrawingToolStripMenuItem.Click += new System.EventHandler(this.StartDrawing_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.alwaysOnTopToolStripMenuItem,
-            this.dockToAboveCenterToolStripMenuItem});
+            this.alwaysOnTopToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -90,22 +97,9 @@
             this.alwaysOnTopToolStripMenuItem.CheckOnClick = true;
             this.alwaysOnTopToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.alwaysOnTopToolStripMenuItem.Text = "Always on top";
-            // 
-            // dockToAboveCenterToolStripMenuItem
-            // 
-            this.dockToAboveCenterToolStripMenuItem.CheckOnClick = true;
-            this.dockToAboveCenterToolStripMenuItem.Name = "dockToAboveCenterToolStripMenuItem";
-            this.dockToAboveCenterToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.dockToAboveCenterToolStripMenuItem.Text = "Dock to above center";
-            // 
-            // startDrawingToolStripMenuItem
-            // 
-            this.startDrawingToolStripMenuItem.Name = "startDrawingToolStripMenuItem";
-            this.startDrawingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.startDrawingToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.startDrawingToolStripMenuItem.Text = "Start Drawing";
+            this.alwaysOnTopToolStripMenuItem.CheckedChanged += new System.EventHandler(this.alwaysOnTopToolStripMenuItem_CheckedChanged);
             // 
             // LibMalekGithub
             // 
@@ -147,6 +141,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Canvas Type";
             // 
+            // RbScreenshotCanvas
+            // 
+            this.RbScreenshotCanvas.Enabled = false;
+            this.RbScreenshotCanvas.Font = new System.Drawing.Font("Comic Sans MS", 12F);
+            this.RbScreenshotCanvas.ForeColor = System.Drawing.Color.Black;
+            this.RbScreenshotCanvas.Location = new System.Drawing.Point(15, 78);
+            this.RbScreenshotCanvas.Name = "RbScreenshotCanvas";
+            this.RbScreenshotCanvas.Size = new System.Drawing.Size(164, 52);
+            this.RbScreenshotCanvas.TabIndex = 1;
+            this.RbScreenshotCanvas.Text = "Stopped Screen Canvas";
+            this.RbScreenshotCanvas.UseVisualStyleBackColor = true;
+            // 
             // RbOverlayCanvas
             // 
             this.RbOverlayCanvas.AutoSize = true;
@@ -160,17 +166,6 @@
             this.RbOverlayCanvas.TabStop = true;
             this.RbOverlayCanvas.Text = "Overlay Canvas";
             this.RbOverlayCanvas.UseVisualStyleBackColor = true;
-            // 
-            // RbScreenshotCanvas
-            // 
-            this.RbScreenshotCanvas.Font = new System.Drawing.Font("Comic Sans MS", 12F);
-            this.RbScreenshotCanvas.ForeColor = System.Drawing.Color.Black;
-            this.RbScreenshotCanvas.Location = new System.Drawing.Point(15, 78);
-            this.RbScreenshotCanvas.Name = "RbScreenshotCanvas";
-            this.RbScreenshotCanvas.Size = new System.Drawing.Size(164, 52);
-            this.RbScreenshotCanvas.TabIndex = 1;
-            this.RbScreenshotCanvas.Text = "Stopped Screen Canvas";
-            this.RbScreenshotCanvas.UseVisualStyleBackColor = true;
             // 
             // BtnStartDrawing
             // 
@@ -186,6 +181,7 @@
             this.BtnStartDrawing.TabIndex = 7;
             this.BtnStartDrawing.Text = "Start Drawing";
             this.BtnStartDrawing.UseVisualStyleBackColor = true;
+            this.BtnStartDrawing.Click += new System.EventHandler(this.StartDrawing_Click);
             // 
             // FrmMain
             // 
@@ -200,6 +196,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MsrMain;
+            this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.Text = "ScreenPen";
             this.TopMost = true;
@@ -219,7 +216,6 @@
         private System.Windows.Forms.ToolStripMenuItem showSavedCanvasesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alwaysOnTopToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dockToAboveCenterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startDrawingToolStripMenuItem;
         private System.Windows.Forms.LinkLabel LibMalekGithub;
         private System.Windows.Forms.ImageList ImgMain;

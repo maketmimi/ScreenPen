@@ -75,6 +75,12 @@
     <Compile Include="GUI\FrmOverlayCanvas.Designer.cs">
       <DependentUpon>FrmOverlayCanvas.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmOverlayCanvasDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmOverlayCanvasDisplay.Designer.cs">
+      <DependentUpon>FrmOverlayCanvasDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmScreenshotCanvas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmOverlayCanvas.resx">
       <DependentUpon>FrmOverlayCanvas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmOverlayCanvasDisplay.resx">
+      <DependentUpon>FrmOverlayCanvasDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

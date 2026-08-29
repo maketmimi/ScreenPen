@@ -78,7 +78,7 @@ namespace ScreenPen.GUI
             _Canvas.Undo();
         }
 
-        private void CloseToolsPanel()
+        public void CloseToolsPanel()
         {
             _ClosedByXButton = false;
             this.Close();

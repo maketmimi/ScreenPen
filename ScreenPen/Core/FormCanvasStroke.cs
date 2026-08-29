@@ -7,6 +7,14 @@ namespace ScreenPen.Core
     {
         private readonly FormCanvas _Canvas;
         private readonly Stroke _Stroke;
+        public int PointsCount
+        {
+            get
+            {
+                return _Stroke.PointsCount;
+            }
+        }
+
 
         public FormCanvasStroke(Pen pen, Point InitialPoint, FormCanvas Canvas)
         {
