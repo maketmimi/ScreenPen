@@ -90,7 +90,7 @@ namespace ScreenPen.GUI
             }
         }
         public Graphics CanvasBitmapGraphics { set; get; }
-        protected Pen CanvasPen { set; get; } = null;
+        protected StrokePen? CanvasStrokePen { set; get; } = null; // I made it null so child canvasses don't create their own copy
         private bool _IsUserDrawing = false;
         private FormCanvasStroke _CurrentStroke = null;
 
@@ -113,7 +113,7 @@ namespace ScreenPen.GUI
             InitializeComponent();
 
             CanvasScreen = Screen.PrimaryScreen;
-            InitializeCanvasPen();
+            InitializeCanvasStrokePen();
 
             LUndoList = new List<FormCanvasStroke>();
             LDrawnStrokes = LUndoList;
@@ -151,14 +151,10 @@ namespace ScreenPen.GUI
             this.Visible = ParentCanvas.Visible;
         }
 
-        private void InitializeCanvasPen()
+        // this should only be called in the parent constructor
+        private void InitializeCanvasStrokePen()
         {
-            CanvasPen = new Pen(Color.Black, 5)
-            {
-                LineJoin = System.Drawing.Drawing2D.LineJoin.Round,
-                StartCap = System.Drawing.Drawing2D.LineCap.Round,
-                EndCap = System.Drawing.Drawing2D.LineCap.Round
-            };
+            CanvasStrokePen = new StrokePen(Color.Black, 5);
         }
 
         private void ParentMsrMainMenu_VisibleChanged(object sender, EventArgs e)
@@ -218,7 +214,7 @@ namespace ScreenPen.GUI
             if (e.Button != MouseButtons.Left) return;
 
             _IsUserDrawing = true;
-            _CurrentStroke = new FormCanvasStroke(Canvas.CanvasPen, e.Location, this);
+            _CurrentStroke = new FormCanvasStroke(Canvas.CanvasStrokePen.Value, e.Location, this);
         }
 
         protected void FormCanvas_MouseMove(object sender, MouseEventArgs e)
@@ -280,17 +276,17 @@ namespace ScreenPen.GUI
 
         public void SetPenWidthTo(float NewWidth)
         {
-            Canvas.CanvasPen.Width = NewWidth;
+            Canvas.CanvasStrokePen = new StrokePen(Canvas.CanvasStrokePen.Value.color, NewWidth);
         }
 
         public void SetPenColorTo(Color NewColor)
         {
-            Canvas.CanvasPen.Color = NewColor;
+            Canvas.CanvasStrokePen = new StrokePen(NewColor, Canvas.CanvasStrokePen.Value.width);
         }
 
-        public void SetNewPen(Pen NewPen)
+        public void SetNewPen(StrokePen NewPen)
         {
-            Canvas.CanvasPen = NewPen;
+            Canvas.CanvasStrokePen = NewPen;
         }
 
         public virtual void SaveCanvas(string FolderPath, ImageFormat ImageType)

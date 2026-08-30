@@ -9,7 +9,7 @@ namespace ScreenPen.Core
     {
         void SetPenWidthTo(float NewWidth);
         void SetPenColorTo(Color NewColor);
-        void SetNewPen(Pen NewPen);
+        void SetNewPen(StrokePen NewPen);
         void SaveCanvas(string FolderPath, ImageFormat ImageType);
         void HideCanvas();
         void ShowCanvas();

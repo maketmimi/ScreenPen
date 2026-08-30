@@ -16,10 +16,10 @@ namespace ScreenPen.Core
         }
 
 
-        public FormCanvasStroke(Pen pen, Point InitialPoint, FormCanvas Canvas)
+        public FormCanvasStroke(StrokePen strokePen, Point InitialPoint, FormCanvas Canvas)
         {
             _Canvas = Canvas;
-            _Stroke = new Stroke(pen, InitialPoint);
+            _Stroke = new Stroke(strokePen, InitialPoint);
         }
 
         public void AddPoint(Point PointToAdd)

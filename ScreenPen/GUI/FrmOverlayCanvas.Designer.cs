@@ -37,7 +37,7 @@
             this.ClientSize = new System.Drawing.Size(693, 376);
             this.Name = "FrmOverlayCanvas";
             this.Opacity = 0.3D;
-            this.Text = "";
+            this.Text = "ScreenPen - Canvas";
             this.ResumeLayout(false);
             this.PerformLayout();
 

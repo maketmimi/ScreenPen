@@ -19,8 +19,6 @@ namespace ScreenPen.GUI
         {
             InitializeComponent();
             InitializeCanvasDisplay();
-            // test 
-            this.Text = "Child";
         }
 
         protected override void CanvasToolPanel_LocationChanged(object sender, EventArgs e)

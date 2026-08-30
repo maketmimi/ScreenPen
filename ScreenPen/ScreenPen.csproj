@@ -51,6 +51,7 @@
     <Compile Include="Core\IRedoable.cs" />
     <Compile Include="Core\IUndoable.cs" />
     <Compile Include="Core\Stroke.cs" />
+    <Compile Include="Core\StrokePen.cs" />
     <Compile Include="GUI\FormCanvas.cs">
       <SubType>Form</SubType>
     </Compile>

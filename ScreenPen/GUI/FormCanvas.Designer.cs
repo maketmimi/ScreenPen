@@ -268,7 +268,7 @@
             this.Name = "FormCanvas";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Canvas";
+            this.Text = "ScreenPen - Canvas";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCanvas_FormClosing);

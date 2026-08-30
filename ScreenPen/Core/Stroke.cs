@@ -1,34 +1,34 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System;
 
 namespace ScreenPen.Core
 {
     public class Stroke
     {
-        public Stroke(Pen pen, Point InitialPoint)
+
+        private static readonly Pen _SharedPen = new Pen(Color.Black, 5)
         {
-            _LPoints.Add(InitialPoint);
-            StrokePen = pen;
-        }
+            LineJoin = System.Drawing.Drawing2D.LineJoin.Round,
+            StartCap = System.Drawing.Drawing2D.LineCap.Round,
+            EndCap = System.Drawing.Drawing2D.LineCap.Round
+        };
 
         private List<Point> _LPoints = new List<Point>();
-        public Pen StrokePen { get; set; }
-        public Color StrokeColor
-        {
-            get { return StrokePen.Color; }
-
-            set
-            {
-                StrokePen.Color = value;
-            }
-        }
+        private StrokePen StrokePenInfo { set; get; }
         public int PointsCount
         {
             get
             {
                 return _LPoints.Count;
             }
+        }
+
+        public Stroke(StrokePen strokePen, Point InitialPoint)
+        {
+            _LPoints.Add(InitialPoint);
+            StrokePenInfo = strokePen;
         }
 
         public void AddPoint(Point PointToAdd)
@@ -38,8 +38,9 @@ namespace ScreenPen.Core
 
         public void DrawLastSegment(Graphics graphics)
         {
+            StrokePenInfo.CustomizePenToMatchThisStrokePen(_SharedPen);
             if (_LPoints.Count > 1)
-                graphics.DrawLine(StrokePen, _LPoints[_LPoints.Count - 2], _LPoints.Last());
+                graphics.DrawLine(_SharedPen, _LPoints[_LPoints.Count - 2], _LPoints.Last());
         }
 
         public void DrawFullStroke(Graphics graphics)
@@ -47,9 +48,9 @@ namespace ScreenPen.Core
             //for (int i = 0; i < _LPoints.Count - 1; i++)
             //    graphics.DrawLine(StrokePen, _LPoints[i], _LPoints[i + 1]);
 
+            StrokePenInfo.CustomizePenToMatchThisStrokePen(_SharedPen);
             if (_LPoints.Count > 1)
-                graphics.DrawLines(StrokePen, _LPoints.ToArray());
-
+                graphics.DrawLines(_SharedPen, _LPoints.ToArray());
         }
     }
 }
