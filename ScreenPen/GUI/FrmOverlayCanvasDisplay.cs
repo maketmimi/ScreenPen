@@ -7,6 +7,7 @@ namespace ScreenPen.GUI
 {
     public partial class FrmOverlayCanvasDisplay : Form
     {
+        public static readonly Color DisplayTransparencyKey = Color.FromArgb(254, 254, 254);
         private readonly FrmOverlayCanvas _Canvas;
         public PictureBox Display
         {
@@ -25,6 +26,8 @@ namespace ScreenPen.GUI
             _Canvas = Canvas;
             this.Location = _Canvas.Location;
             this.PbCanvasDisplay.Image = _Canvas.CanvasBitmap;
+            this.TransparencyKey = DisplayTransparencyKey;
+            //this.BackColor = DisplayTransparencyKey;
 
             _Canvas.VisibleChanged += _Canvas_VisibleChanged;
             _Canvas.FormClosed += _Canvas_FormClosed;

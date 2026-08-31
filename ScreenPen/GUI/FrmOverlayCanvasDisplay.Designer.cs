@@ -43,6 +43,7 @@
             this.drawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolsPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.PbCanvasDisplay)).BeginInit();
             this.MsrMainMenu.SuspendLayout();
             this.SuspendLayout();
@@ -129,7 +130,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             // 
             // redoToolStripMenuItem
@@ -137,14 +138,15 @@
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Z)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             // 
             // drawingToolStripMenuItem
             // 
             this.drawingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolsPanelToolStripMenuItem,
-            this.resetCanvasToolStripMenuItem});
+            this.resetCanvasToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.showToolsPanelToolStripMenuItem});
             this.drawingToolStripMenuItem.Name = "drawingToolStripMenuItem";
             this.drawingToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.drawingToolStripMenuItem.Text = "&Drawing";
@@ -164,6 +166,11 @@
             this.resetCanvasToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.resetCanvasToolStripMenuItem.Text = "&Reset Canvas";
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
+            // 
             // FrmOverlayCanvasDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,7 +188,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.TopMost = true;
-            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.PbCanvasDisplay)).EndInit();
             this.MsrMainMenu.ResumeLayout(false);
@@ -207,5 +213,6 @@
         public System.Windows.Forms.ToolStripMenuItem drawingToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem showToolsPanelToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem resetCanvasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

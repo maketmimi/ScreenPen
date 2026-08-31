@@ -26,8 +26,8 @@ namespace ScreenPen.GUI
         {
             set
             {
-                PnlCurrentColorSwatch.BackColor = value;
                 _Canvas.SetPenColorTo(value);
+                PnlCurrentColorSwatch.BackColor = _Canvas.GetCanvasPenColor();
             }
 
             get
@@ -93,7 +93,7 @@ namespace ScreenPen.GUI
             }
         }
 
-        private void DockToolsPanelToAboveCenter()
+        public void DockToolsPanelToAboveCenter()
         {
             this.FormBorderStyle = FormBorderStyle.None;
 
@@ -104,7 +104,7 @@ namespace ScreenPen.GUI
             this.Location = new Point(PanelNewX, 0);
         }
 
-        private void UnDockToolsPanel()
+        public void UnDockToolsPanel()
         {
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }

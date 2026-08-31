@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
@@ -71,6 +72,12 @@ namespace ScreenPen.GUI
         protected override void RefreshCurrentCanvas()
         {
             _CanvasDisplay.RefreashCanvasDisplay();
+        }
+
+        public override void SetPenColorTo(Color NewColor)
+        {
+            if (NewColor.ToArgb() != FrmOverlayCanvasDisplay.DisplayTransparencyKey.ToArgb())
+                base.SetPenColorTo(NewColor);
         }
     }
 }

@@ -279,7 +279,7 @@ namespace ScreenPen.GUI
             Canvas.CanvasStrokePen = new StrokePen(Canvas.CanvasStrokePen.Value.color, NewWidth);
         }
 
-        public void SetPenColorTo(Color NewColor)
+        public virtual void SetPenColorTo(Color NewColor)
         {
             Canvas.CanvasStrokePen = new StrokePen(NewColor, Canvas.CanvasStrokePen.Value.width);
         }
@@ -448,6 +448,11 @@ namespace ScreenPen.GUI
                 e.Cancel = true;
                 HideCanvas();
             }
+        }
+
+        public Color GetCanvasPenColor()
+        {
+            return Canvas.CanvasStrokePen.Value.color;
         }
     }
 }

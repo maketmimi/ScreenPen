@@ -53,6 +53,7 @@
             this.CmshowMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CmcloseCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.MsrMainMenu.SuspendLayout();
             this.CmsMain.SuspendLayout();
             this.SuspendLayout();
@@ -135,7 +136,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
@@ -144,15 +145,16 @@
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Z)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // drawingToolStripMenuItem
             // 
             this.drawingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolsPanelToolStripMenuItem,
-            this.resetCanvasToolStripMenuItem});
+            this.resetCanvasToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.showToolsPanelToolStripMenuItem});
             this.drawingToolStripMenuItem.Name = "drawingToolStripMenuItem";
             this.drawingToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.drawingToolStripMenuItem.Text = "&Drawing";
@@ -252,6 +254,11 @@
             this.CmcloseCanvasToolStripMenuItem.Text = "&Close Canvas";
             this.CmcloseCanvasToolStripMenuItem.Click += new System.EventHandler(this.closeCanvasToolStripMenuItem_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
+            // 
             // FormCanvas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,5 +315,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         protected System.Windows.Forms.MenuStrip MsrMainMenu;
         protected System.Windows.Forms.ContextMenuStrip CmsMain;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
