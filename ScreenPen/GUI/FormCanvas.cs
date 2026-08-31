@@ -164,7 +164,7 @@ namespace ScreenPen.GUI
                 return Canvas._CanvasToolPanel;
             }
         } 
-
+        
         // parent canves consrtuctor
         protected FormCanvas()
         {
@@ -287,7 +287,7 @@ namespace ScreenPen.GUI
             if (e.Button != MouseButtons.Left) return;
 
             _IsUserDrawing = true;
-            _CurrentStroke = new FormCanvasStroke(Canvas.CanvasStrokePen.Value, e.Location, this);
+            _CurrentStroke = new FormCanvasStroke(Canvas.CanvasStrokePen, e.Location, this);
         }
 
         protected void FormCanvas_MouseMove(object sender, MouseEventArgs e)
@@ -349,17 +349,17 @@ namespace ScreenPen.GUI
 
         public void SetPenWidthTo(float NewWidth)
         {
-            Canvas.CanvasStrokePen = new StrokePen(Canvas._PenTool.Value.color NewWidth);
+            Canvas._PenTool = new StrokePen(Canvas._PenTool.Value.color, NewWidth);
         }
 
         public virtual void SetPenColorTo(Color NewColor)
         {
-            Canvas.CanvasStrokePen = new StrokePen(NewColor, Canvas.CanvasStrokePen.Value.width);
+            Canvas._PenTool = new StrokePen(NewColor, Canvas._PenTool.Value.width);
         }
 
         public void SetNewPen(StrokePen NewPen)
         {
-            Canvas.CanvasStrokePen = NewPen;
+            Canvas._PenTool = NewPen;
         }
 
         public virtual void SaveCanvas(string FolderPath, ImageFormat ImageType)
@@ -525,13 +525,38 @@ namespace ScreenPen.GUI
 
         public Color GetCanvasPenColor()
         {
-            return Canvas.CanvasStrokePen.Value.color;
+            return Canvas._PenTool.Value.color;
         }
 
         private void FormCanvas_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (_IsChild) return;
             CanvasToolPanel.CloseToolsPanelByCode();
+        }
+
+        public void SelectCanvasTool(EnCanvasTools ToolToSelect)
+        {
+            Canvas.SelectedCanvasTool = ToolToSelect;
+        }
+
+        public void SetEraserWidth(float NewWidth)
+        {
+            Canvas._EraserTool = new StrokePen(Canvas._EraserTool.Value.color, NewWidth);
+        }
+
+        public float GetEraserWidth()
+        {
+            return Canvas._EraserTool.Value.width;
+        }
+
+        public EnCanvasTools GetSelectedCanvasTool()
+        {
+            return SelectedCanvasTool;
+        }
+
+        public float GetPenWidth()
+        {
+            return Canvas._PenTool.Value.width;
         }
     }
 }
