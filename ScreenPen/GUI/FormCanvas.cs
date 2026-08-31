@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -80,7 +81,6 @@ namespace ScreenPen.GUI
                 {
                     _CanvasBitmap = value;
                     CanvasBitmapGraphics = Graphics.FromImage(_CanvasBitmap);
-                    CanvasBitmapGraphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                 }
             }
 
@@ -89,8 +89,66 @@ namespace ScreenPen.GUI
                 return _CanvasBitmap;
             }
         }
-        public Graphics CanvasBitmapGraphics { set; get; }
-        protected StrokePen? CanvasStrokePen { set; get; } = null; // I made it null so child canvasses don't create their own copy
+        private Graphics _CanvasBitmapGraphics = null;
+        public Graphics CanvasBitmapGraphics
+        {
+            set
+            {
+                if (value == null) throw new ArgumentNullException();
+
+                value.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                value.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
+                _CanvasBitmapGraphics = value;
+            }
+
+            get
+            {
+                return _CanvasBitmapGraphics;
+            }
+        }
+       
+        // Canvas Tools
+        private StrokePen? _PenTool { set; get; } = null;
+        private StrokePen? _EraserTool { set; get; }  = null;
+        private EnCanvasTools? _SelectedCanvasTool { set; get; } = null;
+        private EnCanvasTools SelectedCanvasTool
+        {
+            set
+            {
+                switch (value)
+                {
+                    case EnCanvasTools.Pen:
+                        Canvas._SelectedCanvasTool = EnCanvasTools.Pen;
+                        ChangeGraphicCompositingModeForAllCanvasses(CompositingMode.SourceOver);
+                        break;
+                    case EnCanvasTools.Eraser:
+                        Canvas._SelectedCanvasTool = EnCanvasTools.Eraser;
+                        ChangeGraphicCompositingModeForAllCanvasses(CompositingMode.SourceCopy);
+                        break;
+                }
+            }
+
+            get
+            {
+                return Canvas._SelectedCanvasTool.Value;
+            }
+        }
+        protected StrokePen CanvasStrokePen
+        {
+            get
+            {
+                switch (SelectedCanvasTool)
+                {
+                    case EnCanvasTools.Pen:
+                        return Canvas._PenTool.Value;
+                    case EnCanvasTools.Eraser:
+                        return Canvas._EraserTool.Value;
+                    default:
+                        return Canvas._PenTool.Value;
+                }
+            }
+        }
+
         private bool _IsUserDrawing = false;
         private FormCanvasStroke _CurrentStroke = null;
 
@@ -113,7 +171,7 @@ namespace ScreenPen.GUI
             InitializeComponent();
 
             CanvasScreen = Screen.PrimaryScreen;
-            InitializeCanvasStrokePen();
+            InitializeCanvasTools();
 
             LUndoList = new List<FormCanvasStroke>();
             LDrawnStrokes = LUndoList;
@@ -122,7 +180,7 @@ namespace ScreenPen.GUI
             _CanvasToolPanel = new FrmCanvasToolsPanel(this);
             _CanvasToolPanel.Owner = this;
             _CanvasToolPanel.LocationChanged += CanvasToolPanel_LocationChanged;
-            
+
             InitializeChildCanvasses();
         }
 
@@ -152,11 +210,26 @@ namespace ScreenPen.GUI
         }
 
         // this should only be called in the parent constructor
-        private void InitializeCanvasStrokePen()
+        private void InitializeCanvasTools()
         {
-            CanvasStrokePen = new StrokePen(Color.Black, 5);
+            _PenTool = new StrokePen(Color.Black, 5);
+            _EraserTool = new StrokePen(Color.Transparent, 5);
+            SelectedCanvasTool = EnCanvasTools.Pen;
         }
 
+        private void ChangeGraphicCompositingModeForAllCanvasses(CompositingMode NewMode)
+        {
+            Canvas.CanvasBitmapGraphics.CompositingMode = NewMode;
+
+            if (Canvas.ChildCanvasses != null)
+            {
+                foreach (var ChildCanvas in Canvas.ChildCanvasses)
+                {
+                    ChildCanvas.CanvasBitmapGraphics.CompositingMode = NewMode;
+                }
+            }
+        }
+        
         private void ParentMsrMainMenu_VisibleChanged(object sender, EventArgs e)
         {
             MsrMainMenu.Visible = ParentCanvas.MsrMainMenu.Visible;
@@ -276,7 +349,7 @@ namespace ScreenPen.GUI
 
         public void SetPenWidthTo(float NewWidth)
         {
-            Canvas.CanvasStrokePen = new StrokePen(Canvas.CanvasStrokePen.Value.color, NewWidth);
+            Canvas.CanvasStrokePen = new StrokePen(Canvas._PenTool.Value.color NewWidth);
         }
 
         public virtual void SetPenColorTo(Color NewColor)
@@ -453,6 +526,12 @@ namespace ScreenPen.GUI
         public Color GetCanvasPenColor()
         {
             return Canvas.CanvasStrokePen.Value.color;
+        }
+
+        private void FormCanvas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (_IsChild) return;
+            CanvasToolPanel.CloseToolsPanelByCode();
         }
     }
 }

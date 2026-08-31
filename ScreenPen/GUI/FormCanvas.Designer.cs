@@ -41,8 +41,9 @@
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showToolsPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.showToolsPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.CmresetCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CmundoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,6 @@
             this.CmshowMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CmcloseCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.MsrMainMenu.SuspendLayout();
             this.CmsMain.SuspendLayout();
             this.SuspendLayout();
@@ -136,7 +136,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
@@ -145,7 +145,7 @@
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Z)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
@@ -159,14 +159,6 @@
             this.drawingToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.drawingToolStripMenuItem.Text = "&Drawing";
             // 
-            // showToolsPanelToolStripMenuItem
-            // 
-            this.showToolsPanelToolStripMenuItem.Name = "showToolsPanelToolStripMenuItem";
-            this.showToolsPanelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.showToolsPanelToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.showToolsPanelToolStripMenuItem.Text = "&Show Tools Panel";
-            this.showToolsPanelToolStripMenuItem.Click += new System.EventHandler(this.showToolsPanelToolStripMenuItem_Click);
-            // 
             // resetCanvasToolStripMenuItem
             // 
             this.resetCanvasToolStripMenuItem.Name = "resetCanvasToolStripMenuItem";
@@ -175,6 +167,19 @@
             this.resetCanvasToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.resetCanvasToolStripMenuItem.Text = "&Reset Canvas";
             this.resetCanvasToolStripMenuItem.Click += new System.EventHandler(this.resetCanvasToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
+            // 
+            // showToolsPanelToolStripMenuItem
+            // 
+            this.showToolsPanelToolStripMenuItem.Name = "showToolsPanelToolStripMenuItem";
+            this.showToolsPanelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
+            this.showToolsPanelToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.showToolsPanelToolStripMenuItem.Text = "&Show Tools Panel";
+            this.showToolsPanelToolStripMenuItem.Click += new System.EventHandler(this.showToolsPanelToolStripMenuItem_Click);
             // 
             // CmsMain
             // 
@@ -254,11 +259,6 @@
             this.CmcloseCanvasToolStripMenuItem.Text = "&Close Canvas";
             this.CmcloseCanvasToolStripMenuItem.Click += new System.EventHandler(this.closeCanvasToolStripMenuItem_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(213, 6);
-            // 
             // FormCanvas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +279,7 @@
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCanvas_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCanvas_FormClosed);
             this.VisibleChanged += new System.EventHandler(this.FormCanvas_VisibleChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormCanvas_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormCanvas_MouseMove);

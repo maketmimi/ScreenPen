@@ -11,6 +11,7 @@ namespace ScreenPen.GUI
     {
         private readonly ICanvas _Canvas;
         private bool _ClosedByXButton = true;
+        private bool _IsUpdatingNudWidthValue = false;
 
         public FrmCanvasToolsPanel(ICanvas Canvas)
         {
@@ -53,7 +54,17 @@ namespace ScreenPen.GUI
 
         private void NudPenWidth_ValueChanged(object sender, EventArgs e)
         {
-            _Canvas.SetPenWidthTo(((float)NudPenWidth.Value));
+            if (_IsUpdatingNudWidthValue) return;
+
+            switch (_Canvas.GetSelectedCanvasTool())
+            {
+                case EnCanvasTools.Pen:
+                    _Canvas.SetPenWidthTo(((float)NudWidth.Value));
+                    break;
+                case EnCanvasTools.Eraser:
+                    _Canvas.SetEraserWidth(((float)NudWidth.Value));
+                    break;
+            }
         }
 
         private void BtnCloseCanvas_Click(object sender, EventArgs e)
@@ -78,7 +89,7 @@ namespace ScreenPen.GUI
             _Canvas.Undo();
         }
 
-        public void CloseToolsPanel()
+        public void CloseToolsPanelByCode()
         {
             _ClosedByXButton = false;
             this.Close();
@@ -120,6 +131,31 @@ namespace ScreenPen.GUI
         private void BtnReset_Click(object sender, EventArgs e)
         {
             _Canvas.ResetCanvas();
+        }
+
+        private void UpdateNudWidthValue(decimal NewValue)
+        {
+            _IsUpdatingNudWidthValue = true;
+            NudWidth.Value = NewValue;
+            _IsUpdatingNudWidthValue = false;
+        }
+
+        private void RbEraser_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RbEraser.Checked)
+            {
+                _Canvas.SelectCanvasTool(EnCanvasTools.Eraser);
+                UpdateNudWidthValue(((decimal)_Canvas.GetEraserWidth()));
+            }
+        }
+
+        private void RbPen_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RbPen.Checked)
+            {
+                _Canvas.SelectCanvasTool(EnCanvasTools.Pen);
+                UpdateNudWidthValue(((decimal)_Canvas.GetPenWidth()));
+            }
         }
     }
 }

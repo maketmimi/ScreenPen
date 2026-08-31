@@ -7,7 +7,12 @@ namespace ScreenPen.Core
 {
     public interface ICanvas : IUndoable, IRedoable
     {
+        void SelectCanvasTool(EnCanvasTools ToolToSelect);
+        void SetEraserWidth(float NewWidth);
+        float GetEraserWidth();
+        EnCanvasTools GetSelectedCanvasTool();
         void SetPenWidthTo(float NewWidth);
+        float GetPenWidth();
         void SetPenColorTo(Color NewColor);
         Color GetCanvasPenColor();
         void SetNewPen(StrokePen NewPen);

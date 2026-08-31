@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\EnCanvasTools.cs" />
     <Compile Include="Core\FormCanvasStroke.cs" />
     <Compile Include="Core\ICanvas.cs" />
     <Compile Include="Core\IRedoable.cs" />
@@ -129,6 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AppIcon.png" />
+    <Content Include="Assets\EraserTool.png" />
+    <Content Include="Assets\PenTool.png" />
     <Content Include="Assets\reset.png" />
     <Content Include="Assets\close.png" />
     <Content Include="Assets\Save.png" />
