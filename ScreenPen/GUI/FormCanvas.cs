@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ScreenPen.GUI
@@ -230,7 +231,7 @@ namespace ScreenPen.GUI
 
         private void ParentMsrMainMenu_VisibleChanged(object sender, EventArgs e)
         {
-            MsrMainMenu.Visible = ParentCanvas.MsrMainMenu.Visible;
+            this.MsrMainMenu.Visible = ParentCanvas.MsrMainMenu.Visible;
         }
 
         private void ParentCanvas_FormClosed(object sender, FormClosedEventArgs e)
@@ -419,7 +420,34 @@ namespace ScreenPen.GUI
 
         public virtual void SaveCanvas(string FolderPath, ImageFormat ImageType)
         {
-            throw new NotImplementedException();
+            bool tempToolPanelVisibile = CanvasToolPanel.Visible;
+
+            CanvasToolPanel.Hide();
+
+            Rectangle VirtualScreenRec = SystemInformation.VirtualScreen;
+            Bitmap CanvasToSave = new Bitmap(VirtualScreenRec.Size.Width, VirtualScreenRec.Size.Height);
+            Graphics CanvasToSaveGraphics = Graphics.FromImage(CanvasToSave);
+
+            try
+            {
+                CanvasToSaveGraphics.CopyFromScreen(VirtualScreenRec.Location, new Point(0, 0), VirtualScreenRec.Size, CopyPixelOperation.SourceCopy);
+
+                string FileName = $"ScreenPen_{DateTime.Now:HHmmss}.{ImageType}";
+
+                CanvasToSave.Save(Path.Combine(FolderPath, FileName), ImageType);
+            
+                MessageBox.Show($"Canvas saved successfully to {FolderPath}", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show($"Ops... cannot save canvas", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            finally
+            {
+                CanvasToolPanel.Visible = tempToolPanelVisibile;
+                CanvasToSave.Dispose();
+                CanvasToSaveGraphics.Dispose();
+            }
         }
 
         public void HideCanvas()

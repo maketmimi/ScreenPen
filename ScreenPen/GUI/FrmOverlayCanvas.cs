@@ -59,11 +59,6 @@ namespace ScreenPen.GUI
             _CanvasDisplay.MsrMainMenu.Visible = this.MsrMainMenu.Visible;
         }
 
-        public override void SaveCanvas(string FolderPath, ImageFormat ImageType)
-        {
-            throw new NotImplementedException();
-        }
-
         protected override FormCanvas CreateChildCanvas(FormCanvas ParentCanvas, Screen CanvasScreen)
         {
             return new FrmOverlayCanvas((FrmOverlayCanvas) ParentCanvas, CanvasScreen);
