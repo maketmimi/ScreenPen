@@ -14,12 +14,14 @@ namespace ScreenPen.GUI
             InitializeComponent();
             InitializeCanvasDisplay();
             CanvasToolPanel.Owner = _CanvasDisplay;
+            CanvasBitmapGraphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
         }
 
         private FrmOverlayCanvas(FrmOverlayCanvas ParentCanvas, Screen CanvasScreen) : base(ParentCanvas, CanvasScreen)
         {
             InitializeComponent();
             InitializeCanvasDisplay();
+            CanvasBitmapGraphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
         }
 
         protected override void CanvasToolPanel_LocationChanged(object sender, EventArgs e)

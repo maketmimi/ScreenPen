@@ -107,6 +107,9 @@
     <EmbeddedResource Include="GUI\FrmOverlayCanvasDisplay.resx">
       <DependentUpon>FrmOverlayCanvasDisplay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmScreenshotCanvas.resx">
+      <DependentUpon>FrmScreenshotCanvas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

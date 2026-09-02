@@ -68,7 +68,7 @@
             this.PnlCurrentColorSwatch.TabIndex = 0;
             this.PnlCurrentColorSwatch.DoubleClick += new System.EventHandler(this.PnlCurrentColorSwatch_DoubleClick);
             // 
-            // NudPenWidth
+            // NudWidth
             // 
             this.NudWidth.BackColor = System.Drawing.Color.White;
             this.NudWidth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -91,7 +91,7 @@
             0,
             0,
             0});
-            this.NudWidth.Name = "NudPenWidth";
+            this.NudWidth.Name = "NudWidth";
             this.NudWidth.Size = new System.Drawing.Size(54, 30);
             this.NudWidth.TabIndex = 5;
             this.NudWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -264,8 +264,8 @@
             this.RbEraser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RbEraser.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.RbEraser.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.RbEraser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.RbEraser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RbEraser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.RbEraser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.RbEraser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RbEraser.ImageKey = "EraserTool.png";
             this.RbEraser.ImageList = this.ImgTools;
@@ -290,8 +290,8 @@
             this.RbPen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RbPen.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.RbPen.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.RbPen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.RbPen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RbPen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.RbPen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.RbPen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RbPen.ImageKey = "PenTool.png";
             this.RbPen.ImageList = this.ImgTools;
