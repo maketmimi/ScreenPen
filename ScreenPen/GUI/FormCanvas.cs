@@ -6,6 +6,8 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace ScreenPen.GUI
@@ -71,7 +73,8 @@ namespace ScreenPen.GUI
                 return _IsChild ? ParentCanvas : this;
             }
         }
-        
+
+        private Bitmap _PreviousCanvasBitMap = null; // this is used for handeling the eraser undo and redo
         private Bitmap _CanvasBitmap = null;
         public Bitmap CanvasBitmap
         {
@@ -81,6 +84,7 @@ namespace ScreenPen.GUI
                 {
                     _CanvasBitmap = value;
                     CanvasBitmapGraphics = Graphics.FromImage(_CanvasBitmap);
+                    CanvasBitmapGraphics.Clear(Color.FromArgb(0, 0, 0, 0));
                 }
             }
 
@@ -97,7 +101,6 @@ namespace ScreenPen.GUI
                 if (value == null) throw new ArgumentNullException();
 
                 value.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                value.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
                 _CanvasBitmapGraphics = value;
             }
 
@@ -110,6 +113,16 @@ namespace ScreenPen.GUI
         // Canvas Tools
         private StrokePen? _PenTool { set; get; } = null;
         private StrokePen? _EraserTool { set; get; }  = null;
+        private CompositingMode SelectedCanvasToolCompositingMode
+        {
+            get
+            {
+                if (SelectedCanvasTool == EnCanvasTools.Eraser)
+                    return CompositingMode.SourceCopy;
+                else
+                    return CompositingMode.SourceOver;
+            }
+        }
         private EnCanvasTools? _SelectedCanvasTool { set; get; } = null;
         private EnCanvasTools SelectedCanvasTool
         {
@@ -119,11 +132,9 @@ namespace ScreenPen.GUI
                 {
                     case EnCanvasTools.Pen:
                         Canvas._SelectedCanvasTool = EnCanvasTools.Pen;
-                        ChangeGraphicCompositingModeForAllCanvasses(CompositingMode.SourceOver);
                         break;
                     case EnCanvasTools.Eraser:
                         Canvas._SelectedCanvasTool = EnCanvasTools.Eraser;
-                        ChangeGraphicCompositingModeForAllCanvasses(CompositingMode.SourceCopy);
                         break;
                 }
             }
@@ -213,23 +224,10 @@ namespace ScreenPen.GUI
         private void InitializeCanvasTools()
         {
             _PenTool = new StrokePen(Color.Black, 5);
-            _EraserTool = new StrokePen(Color.Transparent, 5);
+            _EraserTool = new StrokePen(Color.FromArgb(0, 0, 0, 0), 5);
             SelectedCanvasTool = EnCanvasTools.Pen;
         }
 
-        private void ChangeGraphicCompositingModeForAllCanvasses(CompositingMode NewMode)
-        {
-            Canvas.CanvasBitmapGraphics.CompositingMode = NewMode;
-
-            if (Canvas.ChildCanvasses != null)
-            {
-                foreach (var ChildCanvas in Canvas.ChildCanvasses)
-                {
-                    ChildCanvas.CanvasBitmapGraphics.CompositingMode = NewMode;
-                }
-            }
-        }
-        
         private void ParentMsrMainMenu_VisibleChanged(object sender, EventArgs e)
         {
             MsrMainMenu.Visible = ParentCanvas.MsrMainMenu.Visible;
@@ -287,7 +285,12 @@ namespace ScreenPen.GUI
             if (e.Button != MouseButtons.Left) return;
 
             _IsUserDrawing = true;
-            _CurrentStroke = new FormCanvasStroke(Canvas.CanvasStrokePen, e.Location, this);
+            _CurrentStroke = new FormCanvasStroke(Canvas.CanvasStrokePen, e.Location, this, SelectedCanvasToolCompositingMode);
+        
+            if (SelectedCanvasTool == EnCanvasTools.Eraser)
+            {
+                _PreviousCanvasBitMap = BitmapsUtils.CopyBitmap(CanvasBitmap);
+            }
         }
 
         protected void FormCanvas_MouseMove(object sender, MouseEventArgs e)
@@ -307,16 +310,68 @@ namespace ScreenPen.GUI
 
             if (_CurrentStroke.PointsCount > 1) // cancel the stroke if it only contained the initial point
             {
-                Canvas.LDrawnStrokes.Add(_CurrentStroke); // this adds it to the LUndoList as well 
-                Canvas.LRedoList.Clear();
+                if (!(SelectedCanvasTool == EnCanvasTools.Eraser && !HaveBitmapBeenErased(_PreviousCanvasBitMap, CanvasBitmap)))
+                {
+                    Canvas.LDrawnStrokes.Add(_CurrentStroke); // this adds it to the LUndoList as well 
+                    Canvas.LRedoList.Clear();
+                }
             }
 
             _CurrentStroke = null;
+
+            if (SelectedCanvasTool == EnCanvasTools.Eraser)
+            {
+                _PreviousCanvasBitMap.Dispose();
+                _PreviousCanvasBitMap = null;
+            }
+        }
+
+        // note that the oreder of the parameters is importent
+        private bool HaveBitmapBeenErased(Bitmap PreviousBitmap, Bitmap CurrentBitmap)
+        {
+            if (PreviousBitmap == null || CurrentBitmap == null || PreviousBitmap.Size != CurrentBitmap.Size || PreviousBitmap.PixelFormat != CurrentBitmap.PixelFormat)
+                throw new ArgumentException();
+
+
+            BitmapData PreviousBData = PreviousBitmap.LockBits(BitmapsUtils.GetBitmapFullRectangle(PreviousBitmap), ImageLockMode.ReadOnly, PreviousBitmap.PixelFormat);
+            BitmapData CurrentBData = CurrentBitmap.LockBits(BitmapsUtils.GetBitmapFullRectangle(CurrentBitmap), ImageLockMode.ReadOnly, CurrentBitmap.PixelFormat);
+
+            try
+            {
+                for (int y = 0; y < PreviousBData.Height; y++)
+                {
+                    IntPtr ptrPreviousBRowBeginning = IntPtr.Add(PreviousBData.Scan0, y * PreviousBData.Stride);
+                    IntPtr ptrCurrentBRowBeginning = IntPtr.Add(CurrentBData.Scan0, y * CurrentBData.Stride);
+
+                    // assumming always 32bbpArgb we should make it dynamic in the future
+                    for (int x = 0; x < PreviousBData.Width; x++)
+                    {
+                        IntPtr ptrPreviousBPixelBeginning = IntPtr.Add(ptrPreviousBRowBeginning, x * 4); // another words rowptr + pixelNumber * bytesPerPixel 
+                        byte PreviousAlpha = Marshal.ReadByte(ptrPreviousBPixelBeginning, 3);
+
+                        if (PreviousAlpha == 255)
+                        {
+                            IntPtr ptrCurrentBPixelBeginning = IntPtr.Add(ptrCurrentBRowBeginning, x * 4);
+                            byte CurrentAlpha = Marshal.ReadByte(ptrCurrentBPixelBeginning, 3);
+
+                            if (CurrentAlpha == 0)
+                                return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+            finally
+            {
+                PreviousBitmap.UnlockBits(PreviousBData);
+                CurrentBitmap.UnlockBits(CurrentBData);
+            }
         }
 
         private void ClearCurrentCanvasBitmap()
         {
-            CanvasBitmapGraphics.Clear(Color.Transparent);
+            CanvasBitmapGraphics.Clear(Color.FromArgb(0, 0, 0, 0));
         }
 
         private void ClearAllCanvasBitmaps()
@@ -398,7 +453,7 @@ namespace ScreenPen.GUI
 
             Canvas.LUndoList.Add(Canvas.LRedoList.Last());
             Canvas.LRedoList.Remove(Canvas.LRedoList.Last());
-            RedrawCanvasBitmaps();
+            Canvas.LUndoList.Last().DrawFullStroke();
             RefreshAllCanvasses();
         }
 
@@ -530,6 +585,9 @@ namespace ScreenPen.GUI
 
         private void FormCanvas_FormClosed(object sender, FormClosedEventArgs e)
         {
+            //CanvasBitmap.Dispose();
+            //CanvasBitmapGraphics.Dispose();
+
             if (_IsChild) return;
             CanvasToolPanel.CloseToolsPanelByCode();
         }

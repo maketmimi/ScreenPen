@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System;
+using System.Drawing.Drawing2D;
 
 namespace ScreenPen.Core
 {
@@ -17,6 +18,7 @@ namespace ScreenPen.Core
 
         private List<Point> _LPoints = new List<Point>();
         private StrokePen StrokePenInfo { set; get; }
+        private readonly CompositingMode _GraphicsCompositingMode;
         public int PointsCount
         {
             get
@@ -25,10 +27,11 @@ namespace ScreenPen.Core
             }
         }
 
-        public Stroke(StrokePen strokePen, Point InitialPoint)
+        public Stroke(StrokePen strokePen, Point InitialPoint, CompositingMode compositingMode)
         {
             _LPoints.Add(InitialPoint);
             StrokePenInfo = strokePen;
+            _GraphicsCompositingMode = compositingMode;
         }
 
         public void AddPoint(Point PointToAdd)
@@ -39,6 +42,8 @@ namespace ScreenPen.Core
         public void DrawLastSegment(Graphics graphics)
         {
             StrokePenInfo.CustomizePenToMatchThisStrokePen(_SharedPen);
+            graphics.CompositingMode = _GraphicsCompositingMode;
+
             if (_LPoints.Count > 1)
                 graphics.DrawLine(_SharedPen, _LPoints[_LPoints.Count - 2], _LPoints.Last());
         }
@@ -47,6 +52,7 @@ namespace ScreenPen.Core
         {
             //for (int i = 0; i < _LPoints.Count - 1; i++)
             //    graphics.DrawLine(StrokePen, _LPoints[i], _LPoints[i + 1]);
+            graphics.CompositingMode = _GraphicsCompositingMode;
 
             StrokePenInfo.CustomizePenToMatchThisStrokePen(_SharedPen);
             if (_LPoints.Count > 1)

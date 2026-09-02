@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\BitmapsUtils.cs" />
     <Compile Include="Core\EnCanvasTools.cs" />
     <Compile Include="Core\FormCanvasStroke.cs" />
     <Compile Include="Core\ICanvas.cs" />

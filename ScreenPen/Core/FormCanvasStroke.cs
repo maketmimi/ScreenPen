@@ -1,5 +1,6 @@
 ﻿using ScreenPen.GUI;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace ScreenPen.Core
 {
@@ -16,10 +17,10 @@ namespace ScreenPen.Core
         }
 
 
-        public FormCanvasStroke(StrokePen strokePen, Point InitialPoint, FormCanvas Canvas)
+        public FormCanvasStroke(StrokePen strokePen, Point InitialPoint, FormCanvas Canvas, CompositingMode compositingMode)
         {
             _Canvas = Canvas;
-            _Stroke = new Stroke(strokePen, InitialPoint);
+            _Stroke = new Stroke(strokePen, InitialPoint, compositingMode);
         }
 
         public void AddPoint(Point PointToAdd)
