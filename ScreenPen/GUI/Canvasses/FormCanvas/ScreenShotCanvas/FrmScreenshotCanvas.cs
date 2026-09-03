@@ -1,5 +1,7 @@
 ﻿using ScreenPen.Core;
+using ScreenPen.Properties;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ScreenPen.GUI.Canvasses.FormCanvasses.ScreenShotCanvas
@@ -24,6 +26,12 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.ScreenShotCanvas
         {
             PbCanvasDisplay.Image = CanvasBitmap;
             RecalculatePbCanvasDisplaySizeAndLocation();
+
+            // Test
+
+            //PbCanvasDisplay.Cursor = new Cursor(new MemoryStream(Resources.PenTest));
+
+            // Test
 
             PbCanvasDisplay.MouseDown += FormCanvas_MouseDown;
             PbCanvasDisplay.MouseMove += FormCanvas_MouseMove;

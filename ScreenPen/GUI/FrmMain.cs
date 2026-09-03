@@ -1,20 +1,63 @@
-﻿using ScreenPen.Core;
+﻿using Microsoft.Win32;
+using ScreenPen.Core;
 using System;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ScreenPen.GUI
 {
     public partial class FrmMain : Form
     {
-        private ICanvas _Canvas;
+        private ICanvas _Canvas = null;
+        private ICanvas Canvas
+        {
+            set
+            {
+                if (value == null)
+                    throw new Exception("Why are you here? Please Contact the developer to investigate this unknown Error!");
+
+                if (_Canvas != null)
+                    _Canvas.CloseCanvas();
+
+                _Canvas = value;
+                _Canvas.ShowMainFormWhenCanvasIsHidden(this);
+            }
+
+            get
+            {
+                return _Canvas;
+            }
+        }
 
         public FrmMain()
         {
             InitializeComponent();
             InitializeCanvasTypeRadioButtons();
-            _Canvas = Factory.GetCanvasObject(Factory.EnCanvasType.OverlayCanvas);
-            _Canvas.ShowMainFormWhenCanvasIsHidden(this);
+            Canvas = Factory.GetCanvasObject(GetSelectedCanvasType());
+            SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
+        }
+
+        private Factory.EnCanvasType GetSelectedCanvasType()
+        {
+            if (RbOverlayCanvas.Checked)
+                return (Factory.EnCanvasType)RbOverlayCanvas.Tag;
+            else if (RbScreenshotCanvas.Checked)
+                return (Factory.EnCanvasType)RbScreenshotCanvas.Tag;
+            else
+                throw new Exception("Some thing went really wrong, you shouldn't be here at all!");
+        }
+
+        private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
+        {
+            Thread.Sleep(1000); // just wait for the system to settle down
+
+            bool WasCanvasVisible = Canvas.IsCanvasVisibile();
+            
+            Canvas = Factory.GetCanvasObject(GetSelectedCanvasType());
+
+            if (WasCanvasVisible)
+                Canvas.ShowCanvas();
         }
 
         private void InitializeCanvasTypeRadioButtons()
@@ -48,16 +91,14 @@ namespace ScreenPen.GUI
         private void StartDrawing_Click(object sender, EventArgs e)
         {
             this.Hide();
-            _Canvas.ShowCanvas();
+            Canvas.ShowCanvas();
         }
 
         private void CanvasType_CheckedChanged(object sender, EventArgs e)
         {
             if (sender is RadioButton RbSender && RbSender.Checked)
             {
-                _Canvas.CloseCanvas();
-                _Canvas = Factory.GetCanvasObject((Factory.EnCanvasType)RbSender.Tag);
-                _Canvas.ShowMainFormWhenCanvasIsHidden(this);
+                Canvas = Factory.GetCanvasObject((Factory.EnCanvasType)RbSender.Tag);
             }
         }
     }
