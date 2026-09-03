@@ -1,4 +1,5 @@
 ﻿using ScreenPen.Core;
+using ScreenPen.GUI.Canvasses.CanvasHelpers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
