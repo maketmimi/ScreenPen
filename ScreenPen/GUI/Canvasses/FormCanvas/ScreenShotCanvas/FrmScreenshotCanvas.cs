@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using ScreenPen.Core;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ScreenPen.GUI.Canvasses.FormCanvasses.ScreenShotCanvas
@@ -38,6 +39,8 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.ScreenShotCanvas
             Graphics DesktopImageGraphics = Graphics.FromImage(_DesktopImage);
 
             DesktopImageGraphics.CopyFromScreen(CanvasScreen.Bounds.Location, new Point(0, 0), CanvasScreen.Bounds.Size, CopyPixelOperation.SourceCopy);
+            BitmapsUtils.PutOverlayOnBitmap(_DesktopImage, Color.FromArgb(102, Color.Black)); // it's a black color with 40% opecity
+
             PbCanvasDisplay.BackgroundImage = _DesktopImage;
 
             DesktopImageGraphics.Dispose();

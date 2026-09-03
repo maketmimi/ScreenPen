@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.SymbolStore;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -61,6 +62,25 @@ namespace ScreenPen.Core
             NewBitmapGraphics.Dispose();
 
             return NewBitmap;
+        }
+
+        /// <summary>
+        /// puts an overlay on top of a given bitmap
+        /// </summary>
+        /// <param name="bitmap">Bitmap to put overlay on it</param>
+        /// <param name="OverlayColor">The color of the overlay, make sure to handle the transparency of the overlay yourself</param>
+        public static void PutOverlayOnBitmap(Bitmap bitmap, Color OverlayColor)
+        {
+            Graphics bitmapGraphics = Graphics.FromImage(bitmap);
+            bitmapGraphics.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+            bitmapGraphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+
+            SolidBrush FillBrush = new SolidBrush(OverlayColor);
+
+            bitmapGraphics.FillRectangle(FillBrush, new Rectangle(new Point(0, 0), bitmap.Size));
+
+            bitmapGraphics.Dispose();
+            FillBrush.Dispose();
         }
 
     }
