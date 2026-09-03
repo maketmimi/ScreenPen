@@ -1,4 +1,4 @@
-﻿namespace ScreenPen.GUI
+﻿namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
 {
     partial class FrmOverlayCanvas
     {
@@ -37,7 +37,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(693, 376);
             this.Name = "FrmOverlayCanvas";
-            this.Opacity = 0.5D;
+            this.Opacity = 0.4D;
             this.ResumeLayout(false);
             this.PerformLayout();
 

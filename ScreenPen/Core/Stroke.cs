@@ -8,7 +8,6 @@ namespace ScreenPen.Core
 {
     public class Stroke
     {
-
         private static readonly Pen _SharedPen = new Pen(Color.Black, 5)
         {
             LineJoin = System.Drawing.Drawing2D.LineJoin.Round,
@@ -52,9 +51,10 @@ namespace ScreenPen.Core
         {
             //for (int i = 0; i < _LPoints.Count - 1; i++)
             //    graphics.DrawLine(StrokePen, _LPoints[i], _LPoints[i + 1]);
+            
+            StrokePenInfo.CustomizePenToMatchThisStrokePen(_SharedPen);
             graphics.CompositingMode = _GraphicsCompositingMode;
 
-            StrokePenInfo.CustomizePenToMatchThisStrokePen(_SharedPen);
             if (_LPoints.Count > 1)
                 graphics.DrawLines(_SharedPen, _LPoints.ToArray());
         }

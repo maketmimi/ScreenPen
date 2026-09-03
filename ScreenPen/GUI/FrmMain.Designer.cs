@@ -143,7 +143,6 @@
             // 
             // RbScreenshotCanvas
             // 
-            this.RbScreenshotCanvas.Enabled = false;
             this.RbScreenshotCanvas.Font = new System.Drawing.Font("Comic Sans MS", 12F);
             this.RbScreenshotCanvas.ForeColor = System.Drawing.Color.Black;
             this.RbScreenshotCanvas.Location = new System.Drawing.Point(15, 78);
@@ -152,6 +151,7 @@
             this.RbScreenshotCanvas.TabIndex = 1;
             this.RbScreenshotCanvas.Text = "Stopped Screen Canvas";
             this.RbScreenshotCanvas.UseVisualStyleBackColor = true;
+            this.RbScreenshotCanvas.CheckedChanged += new System.EventHandler(this.CanvasType_CheckedChanged);
             // 
             // RbOverlayCanvas
             // 
@@ -166,6 +166,7 @@
             this.RbOverlayCanvas.TabStop = true;
             this.RbOverlayCanvas.Text = "Overlay Canvas";
             this.RbOverlayCanvas.UseVisualStyleBackColor = true;
+            this.RbOverlayCanvas.CheckedChanged += new System.EventHandler(this.CanvasType_CheckedChanged);
             // 
             // BtnStartDrawing
             // 

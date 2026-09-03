@@ -13,24 +13,19 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+  <PropertyGroup>
+    <StartupObject>ScreenPen.Program</StartupObject>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+  <PropertyGroup>
+    <ApplicationIcon>pen.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,22 +43,23 @@
   <ItemGroup>
     <Compile Include="Core\BitmapsUtils.cs" />
     <Compile Include="Core\EnCanvasTools.cs" />
+    <Compile Include="Core\Factory.cs" />
     <Compile Include="Core\FormCanvasStroke.cs" />
     <Compile Include="Core\ICanvas.cs" />
     <Compile Include="Core\IRedoable.cs" />
     <Compile Include="Core\IUndoable.cs" />
     <Compile Include="Core\Stroke.cs" />
     <Compile Include="Core\StrokePen.cs" />
-    <Compile Include="GUI\FormCanvas.cs">
+    <Compile Include="GUI\Canvasses\FormCanvas\FormCanvas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormCanvas.Designer.cs">
+    <Compile Include="GUI\Canvasses\FormCanvas\FormCanvas.Designer.cs">
       <DependentUpon>FormCanvas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FrmCanvasToolsPanel.cs">
+    <Compile Include="GUI\Canvasses\CanvasHelpers\FrmCanvasToolsPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FrmCanvasToolsPanel.Designer.cs">
+    <Compile Include="GUI\Canvasses\CanvasHelpers\FrmCanvasToolsPanel.Designer.cs">
       <DependentUpon>FrmCanvasToolsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmMain.cs">
@@ -72,42 +68,42 @@
     <Compile Include="GUI\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FrmOverlayCanvas.cs">
+    <Compile Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FrmOverlayCanvas.Designer.cs">
+    <Compile Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvas.Designer.cs">
       <DependentUpon>FrmOverlayCanvas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FrmOverlayCanvasDisplay.cs">
+    <Compile Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvasDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FrmOverlayCanvasDisplay.Designer.cs">
+    <Compile Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvasDisplay.Designer.cs">
       <DependentUpon>FrmOverlayCanvasDisplay.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FrmScreenshotCanvas.cs">
+    <Compile Include="GUI\Canvasses\FormCanvas\ScreenShotCanvas\FrmScreenshotCanvas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FrmScreenshotCanvas.Designer.cs">
+    <Compile Include="GUI\Canvasses\FormCanvas\ScreenShotCanvas\FrmScreenshotCanvas.Designer.cs">
       <DependentUpon>FrmScreenshotCanvas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\FormCanvas.resx">
+    <EmbeddedResource Include="GUI\Canvasses\FormCanvas\FormCanvas.resx">
       <DependentUpon>FormCanvas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmCanvasToolsPanel.resx">
+    <EmbeddedResource Include="GUI\Canvasses\CanvasHelpers\FrmCanvasToolsPanel.resx">
       <DependentUpon>FrmCanvasToolsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmOverlayCanvas.resx">
+    <EmbeddedResource Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvas.resx">
       <DependentUpon>FrmOverlayCanvas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmOverlayCanvasDisplay.resx">
+    <EmbeddedResource Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvasDisplay.resx">
       <DependentUpon>FrmOverlayCanvasDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmScreenshotCanvas.resx">
+    <EmbeddedResource Include="GUI\Canvasses\FormCanvas\ScreenShotCanvas\FrmScreenshotCanvas.resx">
       <DependentUpon>FrmScreenshotCanvas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -142,6 +138,7 @@
     <Content Include="Assets\pen.ico" />
     <Content Include="Assets\redo.png" />
     <Content Include="Assets\undo.png" />
+    <Content Include="pen.ico" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Windows.Forms;
 
-namespace ScreenPen.GUI
+namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
 {
     public partial class FrmOverlayCanvas : FormCanvas
     {

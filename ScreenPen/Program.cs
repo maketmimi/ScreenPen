@@ -1,4 +1,5 @@
-﻿using ScreenPen.GUI;
+﻿using ScreenPen.Core;
+using ScreenPen.GUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;

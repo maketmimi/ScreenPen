@@ -7,21 +7,20 @@ namespace ScreenPen.GUI
 {
     public partial class FrmMain : Form
     {
+        private ICanvas _Canvas;
+
         public FrmMain()
         {
             InitializeComponent();
-            _Canvas = GetSelectedCanvasTypeObject();
+            InitializeCanvasTypeRadioButtons();
+            _Canvas = Factory.GetCanvasObject(Factory.EnCanvasType.OverlayCanvas);
+            _Canvas.ShowMainFormWhenCanvasIsHidden(this);
         }
 
-        private ICanvas _Canvas;
-
-        private ICanvas GetSelectedCanvasTypeObject()
+        private void InitializeCanvasTypeRadioButtons()
         {
-            FrmOverlayCanvas Canvas = new FrmOverlayCanvas();
-            Canvas.ShowMainFormWhenCanvasIsHidden(this);
-            return Canvas;
-            // rest of logic here
-            // do not forget to unsbuscreibe
+            RbOverlayCanvas.Tag = Factory.EnCanvasType.OverlayCanvas;
+            RbScreenshotCanvas.Tag = Factory.EnCanvasType.ScreenShotCanvas;
         }
 
         private void LibMalekGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -50,6 +49,16 @@ namespace ScreenPen.GUI
         {
             this.Hide();
             _Canvas.ShowCanvas();
+        }
+
+        private void CanvasType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is RadioButton RbSender && RbSender.Checked)
+            {
+                _Canvas.CloseCanvas();
+                _Canvas = Factory.GetCanvasObject((Factory.EnCanvasType)RbSender.Tag);
+                _Canvas.ShowMainFormWhenCanvasIsHidden(this);
+            }
         }
     }
 }

@@ -7,11 +7,9 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Threading;
 using System.Windows.Forms;
 
-namespace ScreenPen.GUI
+namespace ScreenPen.GUI.Canvasses.FormCanvasses
 {
     public partial class FormCanvas : Form, ICanvas
     {
@@ -218,7 +216,14 @@ namespace ScreenPen.GUI
 
         private void ParentCanvas_VisibleChanged(object sender, EventArgs e)
         {
-            this.Visible = ParentCanvas.Visible;
+            if (ParentCanvas.Visible)
+            {
+                this.ShowForm();
+            }
+            else
+            {
+                this.Hide();
+            }
         }
 
         // this should only be called in the parent constructor
@@ -455,9 +460,14 @@ namespace ScreenPen.GUI
             Canvas.Hide();
         }
 
+        protected virtual void ShowForm()
+        {
+            this.Show();
+        } 
+
         public void ShowCanvas()
         {
-            Canvas.Show();
+            Canvas.ShowForm();
         }
 
         public void Undo()
@@ -577,6 +587,7 @@ namespace ScreenPen.GUI
 
         public void CloseCanvas()
         {
+            CanvasToolPanel.Owner = null;
             IsClosedByCode = true;
             Canvas.Close();
         }
@@ -611,13 +622,22 @@ namespace ScreenPen.GUI
             return Canvas._PenTool.Value.color;
         }
 
+        private void DisposeCanavsResources()
+        {
+            if (_PreviousCanvasBitMap != null)
+                _PreviousCanvasBitMap.Dispose();
+
+            CanvasBitmap.Dispose();
+            CanvasBitmapGraphics.Dispose();
+        }
+
         private void FormCanvas_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //CanvasBitmap.Dispose();
-            //CanvasBitmapGraphics.Dispose();
-
-            if (_IsChild) return;
-            CanvasToolPanel.CloseToolsPanelByCode();
+            DisposeCanavsResources();
+            if (!_IsChild)
+            {
+                CanvasToolPanel.CloseToolsPanelByCode();
+            }
         }
 
         public void SelectCanvasTool(EnCanvasTools ToolToSelect)

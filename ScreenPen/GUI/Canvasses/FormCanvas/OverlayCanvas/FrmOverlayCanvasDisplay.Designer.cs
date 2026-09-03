@@ -1,4 +1,6 @@
-﻿namespace ScreenPen.GUI
+﻿using System.Windows.Forms;
+
+namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
 {
     partial class FrmOverlayCanvasDisplay
     {

@@ -1,4 +1,4 @@
-﻿namespace ScreenPen.GUI
+﻿namespace ScreenPen.GUI.Canvasses.CanvasHelpers
 {
     partial class FrmCanvasToolsPanel
     {

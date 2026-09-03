@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ScreenPen")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("a simple Easy to use tool to draw on the screen")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Malek Altamimi")]
 [assembly: AssemblyProduct("ScreenPen")]
 [assembly: AssemblyCopyright("Copyright ©  2026")]
 [assembly: AssemblyTrademark("")]

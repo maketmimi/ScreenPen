@@ -5,7 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
-namespace ScreenPen.GUI
+namespace ScreenPen.GUI.Canvasses.CanvasHelpers
 {
     public partial class FrmCanvasToolsPanel : Form
     {
