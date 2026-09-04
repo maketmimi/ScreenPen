@@ -231,7 +231,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
         private void InitializeCanvasTools()
         {
             _PenTool = new StrokePen(Color.Black, 5);
-            _EraserTool = new StrokePen(Color.FromArgb(0, 0, 0, 0), 5);
+            _EraserTool = new StrokePen(Color.FromArgb(0, 0, 0, 0), 10);
             SelectedCanvasTool = EnCanvasTools.Pen;
         }
 
@@ -438,7 +438,14 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             {
                 CanvasToSaveGraphics.CopyFromScreen(VirtualScreenRec.Location, new Point(0, 0), VirtualScreenRec.Size, CopyPixelOperation.SourceCopy);
 
+
                 string FileName = $"ScreenPen_{DateTime.Now:HHmmss}.{ImageType}";
+
+                if (!Directory.Exists(FolderPath))
+                {
+                    Directory.CreateDirectory(FolderPath);
+                }
+
 
                 CanvasToSave.Save(Path.Combine(FolderPath, FileName), ImageType);
             

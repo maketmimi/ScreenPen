@@ -1,4 +1,1 @@
 ﻿1- set pictures for menu items and context menus
-2- Tapo index
-3- max of pen width _> numaric up down
-6- Tool Panel undo redo enable state

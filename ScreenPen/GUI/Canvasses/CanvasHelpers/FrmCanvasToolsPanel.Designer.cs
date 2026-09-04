@@ -65,7 +65,7 @@
             this.PnlCurrentColorSwatch.Location = new System.Drawing.Point(366, 4);
             this.PnlCurrentColorSwatch.Name = "PnlCurrentColorSwatch";
             this.PnlCurrentColorSwatch.Size = new System.Drawing.Size(40, 40);
-            this.PnlCurrentColorSwatch.TabIndex = 0;
+            this.PnlCurrentColorSwatch.TabIndex = 1;
             this.PnlCurrentColorSwatch.DoubleClick += new System.EventHandler(this.PnlCurrentColorSwatch_DoubleClick);
             // 
             // NudWidth
@@ -82,7 +82,7 @@
             65536});
             this.NudWidth.Location = new System.Drawing.Point(163, 9);
             this.NudWidth.Maximum = new decimal(new int[] {
-            50,
+            300,
             0,
             0,
             0});
@@ -93,7 +93,7 @@
             0});
             this.NudWidth.Name = "NudWidth";
             this.NudWidth.Size = new System.Drawing.Size(54, 30);
-            this.NudWidth.TabIndex = 5;
+            this.NudWidth.TabIndex = 0;
             this.NudWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NudWidth.Value = new decimal(new int[] {
             5,
@@ -109,7 +109,7 @@
             this.label1.Location = new System.Drawing.Point(87, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 26);
-            this.label1.TabIndex = 6;
+            this.label1.TabIndex = 8;
             this.label1.Text = "Width:";
             // 
             // BtnUndo
@@ -125,7 +125,7 @@
             this.BtnUndo.Location = new System.Drawing.Point(3, 8);
             this.BtnUndo.Name = "BtnUndo";
             this.BtnUndo.Size = new System.Drawing.Size(36, 32);
-            this.BtnUndo.TabIndex = 8;
+            this.BtnUndo.TabIndex = 0;
             this.BtnUndo.UseVisualStyleBackColor = true;
             this.BtnUndo.Click += new System.EventHandler(this.BtnUndo_Click);
             // 
@@ -152,7 +152,7 @@
             this.BtnRedo.Location = new System.Drawing.Point(42, 8);
             this.BtnRedo.Name = "BtnRedo";
             this.BtnRedo.Size = new System.Drawing.Size(36, 32);
-            this.BtnRedo.TabIndex = 9;
+            this.BtnRedo.TabIndex = 1;
             this.BtnRedo.UseVisualStyleBackColor = true;
             this.BtnRedo.Click += new System.EventHandler(this.BtnRedo_Click);
             // 
@@ -170,7 +170,7 @@
             this.PnlActions.Location = new System.Drawing.Point(427, 7);
             this.PnlActions.Name = "PnlActions";
             this.PnlActions.Size = new System.Drawing.Size(201, 51);
-            this.PnlActions.TabIndex = 10;
+            this.PnlActions.TabIndex = 1;
             // 
             // CmsMain
             // 
@@ -201,7 +201,7 @@
             this.BtnReset.Location = new System.Drawing.Point(81, 8);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(36, 32);
-            this.BtnReset.TabIndex = 12;
+            this.BtnReset.TabIndex = 2;
             this.BtnReset.UseVisualStyleBackColor = true;
             this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
@@ -218,7 +218,7 @@
             this.BtnCloseCanvas.Location = new System.Drawing.Point(159, 8);
             this.BtnCloseCanvas.Name = "BtnCloseCanvas";
             this.BtnCloseCanvas.Size = new System.Drawing.Size(36, 32);
-            this.BtnCloseCanvas.TabIndex = 11;
+            this.BtnCloseCanvas.TabIndex = 4;
             this.BtnCloseCanvas.UseVisualStyleBackColor = true;
             this.BtnCloseCanvas.Click += new System.EventHandler(this.BtnCloseCanvas_Click);
             // 
@@ -235,7 +235,7 @@
             this.BtnSaveCanvas.Location = new System.Drawing.Point(120, 8);
             this.BtnSaveCanvas.Name = "BtnSaveCanvas";
             this.BtnSaveCanvas.Size = new System.Drawing.Size(36, 32);
-            this.BtnSaveCanvas.TabIndex = 10;
+            this.BtnSaveCanvas.TabIndex = 3;
             this.BtnSaveCanvas.UseVisualStyleBackColor = true;
             this.BtnSaveCanvas.Click += new System.EventHandler(this.BtnSaveCanvas_Click);
             // 
@@ -256,7 +256,7 @@
             this.panel1.Location = new System.Drawing.Point(9, 7);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(412, 51);
-            this.panel1.TabIndex = 11;
+            this.panel1.TabIndex = 0;
             // 
             // RbEraser
             // 
@@ -272,7 +272,7 @@
             this.RbEraser.Location = new System.Drawing.Point(52, 9);
             this.RbEraser.Name = "RbEraser";
             this.RbEraser.Size = new System.Drawing.Size(30, 30);
-            this.RbEraser.TabIndex = 13;
+            this.RbEraser.TabIndex = 6;
             this.RbEraser.UseVisualStyleBackColor = true;
             this.RbEraser.CheckedChanged += new System.EventHandler(this.RbEraser_CheckedChanged);
             // 
@@ -298,7 +298,7 @@
             this.RbPen.Location = new System.Drawing.Point(9, 7);
             this.RbPen.Name = "RbPen";
             this.RbPen.Size = new System.Drawing.Size(35, 35);
-            this.RbPen.TabIndex = 12;
+            this.RbPen.TabIndex = 7;
             this.RbPen.TabStop = true;
             this.RbPen.UseVisualStyleBackColor = true;
             this.RbPen.CheckedChanged += new System.EventHandler(this.RbPen_CheckedChanged);
@@ -312,7 +312,7 @@
             this.PnlRedSwatch.Location = new System.Drawing.Point(225, 9);
             this.PnlRedSwatch.Name = "PnlRedSwatch";
             this.PnlRedSwatch.Size = new System.Drawing.Size(30, 30);
-            this.PnlRedSwatch.TabIndex = 4;
+            this.PnlRedSwatch.TabIndex = 5;
             this.PnlRedSwatch.Click += new System.EventHandler(this.QuickColor_Click);
             // 
             // PnlGreenSwatch
@@ -324,7 +324,7 @@
             this.PnlGreenSwatch.Location = new System.Drawing.Point(260, 9);
             this.PnlGreenSwatch.Name = "PnlGreenSwatch";
             this.PnlGreenSwatch.Size = new System.Drawing.Size(30, 30);
-            this.PnlGreenSwatch.TabIndex = 3;
+            this.PnlGreenSwatch.TabIndex = 4;
             this.PnlGreenSwatch.Click += new System.EventHandler(this.QuickColor_Click);
             // 
             // PnlBlueSwatch
@@ -336,7 +336,7 @@
             this.PnlBlueSwatch.Location = new System.Drawing.Point(295, 9);
             this.PnlBlueSwatch.Name = "PnlBlueSwatch";
             this.PnlBlueSwatch.Size = new System.Drawing.Size(30, 30);
-            this.PnlBlueSwatch.TabIndex = 2;
+            this.PnlBlueSwatch.TabIndex = 3;
             this.PnlBlueSwatch.Click += new System.EventHandler(this.QuickColor_Click);
             // 
             // PnlBlackSwatch
@@ -348,7 +348,7 @@
             this.PnlBlackSwatch.Location = new System.Drawing.Point(330, 9);
             this.PnlBlackSwatch.Name = "PnlBlackSwatch";
             this.PnlBlackSwatch.Size = new System.Drawing.Size(30, 30);
-            this.PnlBlackSwatch.TabIndex = 1;
+            this.PnlBlackSwatch.TabIndex = 2;
             this.PnlBlackSwatch.Click += new System.EventHandler(this.QuickColor_Click);
             // 
             // FrmCanvasToolsPanel

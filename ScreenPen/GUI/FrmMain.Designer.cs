@@ -56,7 +56,7 @@
             this.MsrMain.Name = "MsrMain";
             this.MsrMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.MsrMain.Size = new System.Drawing.Size(310, 24);
-            this.MsrMain.TabIndex = 0;
+            this.MsrMain.TabIndex = 3;
             // 
             // appToolStripMenuItem
             // 
@@ -115,7 +115,7 @@
             this.LibMalekGithub.Location = new System.Drawing.Point(4, 183);
             this.LibMalekGithub.Name = "LibMalekGithub";
             this.LibMalekGithub.Size = new System.Drawing.Size(252, 27);
-            this.LibMalekGithub.TabIndex = 5;
+            this.LibMalekGithub.TabIndex = 2;
             this.LibMalekGithub.TabStop = true;
             this.LibMalekGithub.Text = "Developed by Malek Altamimi";
             this.LibMalekGithub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -137,7 +137,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 32);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(185, 148);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Canvas Type";
             // 
@@ -179,7 +179,7 @@
             this.BtnStartDrawing.Location = new System.Drawing.Point(210, 44);
             this.BtnStartDrawing.Name = "BtnStartDrawing";
             this.BtnStartDrawing.Size = new System.Drawing.Size(88, 136);
-            this.BtnStartDrawing.TabIndex = 7;
+            this.BtnStartDrawing.TabIndex = 0;
             this.BtnStartDrawing.Text = "Start Drawing";
             this.BtnStartDrawing.UseVisualStyleBackColor = true;
             this.BtnStartDrawing.Click += new System.EventHandler(this.StartDrawing_Click);
@@ -199,7 +199,7 @@
             this.MainMenuStrip = this.MsrMain;
             this.MaximizeBox = false;
             this.Name = "FrmMain";
-            this.Text = "ScreenPen";
+            this.Text = "ScreenPen - Testing Version";
             this.TopMost = true;
             this.MsrMain.ResumeLayout(false);
             this.MsrMain.PerformLayout();

@@ -43,9 +43,9 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showToolsPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.showToolsPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PbCanvasDisplay)).BeginInit();
             this.MsrMainMenu.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +70,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             this.MsrMainMenu.Name = "MsrMainMenu";
             this.MsrMainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.MsrMainMenu.Size = new System.Drawing.Size(800, 24);
-            this.MsrMainMenu.TabIndex = 1;
+            this.MsrMainMenu.TabIndex = 0;
             // 
             // canvasToolStripMenuItem
             // 
@@ -153,13 +153,6 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             this.drawingToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.drawingToolStripMenuItem.Text = "&Drawing";
             // 
-            // showToolsPanelToolStripMenuItem
-            // 
-            this.showToolsPanelToolStripMenuItem.Name = "showToolsPanelToolStripMenuItem";
-            this.showToolsPanelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.showToolsPanelToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.showToolsPanelToolStripMenuItem.Text = "&Show Tools Panel";
-            // 
             // resetCanvasToolStripMenuItem
             // 
             this.resetCanvasToolStripMenuItem.Name = "resetCanvasToolStripMenuItem";
@@ -172,6 +165,13 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
+            // 
+            // showToolsPanelToolStripMenuItem
+            // 
+            this.showToolsPanelToolStripMenuItem.Name = "showToolsPanelToolStripMenuItem";
+            this.showToolsPanelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
+            this.showToolsPanelToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.showToolsPanelToolStripMenuItem.Text = "&Show Tools Panel";
             // 
             // FrmOverlayCanvasDisplay
             // 

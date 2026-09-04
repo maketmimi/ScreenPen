@@ -57,7 +57,7 @@ namespace ScreenPen.GUI
             Canvas = Factory.GetCanvasObject(GetSelectedCanvasType());
 
             if (WasCanvasVisible)
-                Canvas.ShowCanvas();
+                StartDrawing();
         }
 
         private void InitializeCanvasTypeRadioButtons()
@@ -88,10 +88,18 @@ namespace ScreenPen.GUI
             this.TopMost = alwaysOnTopToolStripMenuItem.Checked;
         }
 
-        private void StartDrawing_Click(object sender, EventArgs e)
+        private void StartDrawing()
         {
             this.Hide();
+
+            // TODO: We must wait for the main form to be hidden before sowing the canvas
+
             Canvas.ShowCanvas();
+        }
+
+        private void StartDrawing_Click(object sender, EventArgs e)
+        {
+            StartDrawing();
         }
 
         private void CanvasType_CheckedChanged(object sender, EventArgs e)

@@ -50,10 +50,10 @@
     <Compile Include="Core\IUndoable.cs" />
     <Compile Include="Core\Stroke.cs" />
     <Compile Include="Core\StrokePen.cs" />
-    <Compile Include="GUI\Canvasses\FormCanvas\FormCanvas.cs">
+    <Compile Include="GUI\Canvasses\FormCanvasses\FormCanvas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Canvasses\FormCanvas\FormCanvas.Designer.cs">
+    <Compile Include="GUI\Canvasses\FormCanvasses\FormCanvas.Designer.cs">
       <DependentUpon>FormCanvas.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Canvasses\CanvasHelpers\FrmCanvasToolsPanel.cs">
@@ -68,27 +68,27 @@
     <Compile Include="GUI\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvas.cs">
+    <Compile Include="GUI\Canvasses\FormCanvasses\OverlayCanvas\FrmOverlayCanvas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvas.Designer.cs">
+    <Compile Include="GUI\Canvasses\FormCanvasses\OverlayCanvas\FrmOverlayCanvas.Designer.cs">
       <DependentUpon>FrmOverlayCanvas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvasDisplay.cs">
+    <Compile Include="GUI\Canvasses\FormCanvasses\OverlayCanvas\FrmOverlayCanvasDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvasDisplay.Designer.cs">
+    <Compile Include="GUI\Canvasses\FormCanvasses\OverlayCanvas\FrmOverlayCanvasDisplay.Designer.cs">
       <DependentUpon>FrmOverlayCanvasDisplay.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Canvasses\FormCanvas\ScreenShotCanvas\FrmScreenshotCanvas.cs">
+    <Compile Include="GUI\Canvasses\FormCanvasses\ScreenShotCanvas\FrmScreenshotCanvas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Canvasses\FormCanvas\ScreenShotCanvas\FrmScreenshotCanvas.Designer.cs">
+    <Compile Include="GUI\Canvasses\FormCanvasses\ScreenShotCanvas\FrmScreenshotCanvas.Designer.cs">
       <DependentUpon>FrmScreenshotCanvas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\Canvasses\FormCanvas\FormCanvas.resx">
+    <EmbeddedResource Include="GUI\Canvasses\FormCanvasses\FormCanvas.resx">
       <DependentUpon>FormCanvas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Canvasses\CanvasHelpers\FrmCanvasToolsPanel.resx">
@@ -97,13 +97,13 @@
     <EmbeddedResource Include="GUI\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvas.resx">
+    <EmbeddedResource Include="GUI\Canvasses\FormCanvasses\OverlayCanvas\FrmOverlayCanvas.resx">
       <DependentUpon>FrmOverlayCanvas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Canvasses\FormCanvas\OverlayCanvas\FrmOverlayCanvasDisplay.resx">
+    <EmbeddedResource Include="GUI\Canvasses\FormCanvasses\OverlayCanvas\FrmOverlayCanvasDisplay.resx">
       <DependentUpon>FrmOverlayCanvasDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Canvasses\FormCanvas\ScreenShotCanvas\FrmScreenshotCanvas.resx">
+    <EmbeddedResource Include="GUI\Canvasses\FormCanvasses\ScreenShotCanvas\FrmScreenshotCanvas.resx">
       <DependentUpon>FrmScreenshotCanvas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
