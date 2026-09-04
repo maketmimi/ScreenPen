@@ -71,12 +71,32 @@ namespace ScreenPen.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] EraserCursor {
+            get {
+                object obj = ResourceManager.GetObject("EraserCursor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap OpenSavedCanvassesFolder {
             get {
                 object obj = ResourceManager.GetObject("OpenSavedCanvassesFolder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PenCursor {
+            get {
+                object obj = ResourceManager.GetObject("PenCursor", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

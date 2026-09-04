@@ -1,5 +1,6 @@
 ﻿using ScreenPen.Core;
 using ScreenPen.GUI.Canvasses.CanvasHelpers;
+using ScreenPen.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,6 +8,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -109,8 +111,10 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
                 return _CanvasBitmapGraphics;
             }
         }
-       
+
         // Canvas Tools
+        private Cursor _PenCursor = null;
+        private Cursor _EraserCursor = null;
         private StrokePen? _PenTool { set; get; } = null;
         private StrokePen? _EraserTool { set; get; }  = null;
         private CompositingMode SelectedCanvasToolCompositingMode
@@ -132,9 +136,11 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
                 {
                     case EnCanvasTools.Pen:
                         Canvas._SelectedCanvasTool = EnCanvasTools.Pen;
+                        ChangeControlsCursors(Canvas._PenCursor);
                         break;
                     case EnCanvasTools.Eraser:
                         Canvas._SelectedCanvasTool = EnCanvasTools.Eraser;
+                        ChangeControlsCursors(Canvas._EraserCursor);
                         break;
                 }
             }
@@ -174,14 +180,19 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             {
                 return Canvas._CanvasToolPanel;
             }
-        } 
-        
+        }
+
+        private readonly List<Control> _LControlsToChangeTheirCursorWhenSelectedToolIsChanged = null;
+
         // parent canves consrtuctor
         protected FormCanvas()
         {
             InitializeComponent();
 
             CanvasScreen = Screen.PrimaryScreen;
+            InitializeCursors();
+            _LControlsToChangeTheirCursorWhenSelectedToolIsChanged = new List<Control>();
+            AddControlToChangeItsCursorWhenSelecetdToolChange(this);
             InitializeCanvasTools();
 
             LUndoList = new List<FormCanvasStroke>();
@@ -195,12 +206,6 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             InitializeChildCanvasses();
         }
 
-        protected virtual void CanvasToolPanel_LocationChanged(object sender, EventArgs e)
-        {
-            if (CanvasScreen.Bounds.Contains(Canvas._CanvasToolPanel.Location))
-                Canvas._CanvasToolPanel.Owner = this;
-        }
-
         // Child counstructor
         protected FormCanvas(FormCanvas ParentCanvas, Screen CanvasScreen)
         {
@@ -209,10 +214,40 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             this.ParentCanvas = ParentCanvas;
             _IsChild = true;
 
+            AddControlToChangeItsCursorWhenSelecetdToolChange(this);
+
             this.ParentCanvas.FormClosed += ParentCanvas_FormClosed;
             this.ParentCanvas.VisibleChanged += ParentCanvas_VisibleChanged;
             this.ParentCanvas.MsrMainMenu.VisibleChanged += ParentMsrMainMenu_VisibleChanged;
             this.ParentCanvas._CanvasToolPanel.LocationChanged += CanvasToolPanel_LocationChanged;
+        }
+
+        private void RefreshCursors()
+        {
+            SelectCanvasTool(SelectedCanvasTool);
+        }
+
+        private void InitializeCursors()
+        {
+            _PenCursor = new Cursor(new MemoryStream(Resources.PenCursor));
+            _EraserCursor = new Cursor(new MemoryStream(Resources.EraserCursor));
+        }
+
+        private void ChangeControlsCursors(Cursor CursorToSet)
+        {
+            foreach (var control in Canvas._LControlsToChangeTheirCursorWhenSelectedToolIsChanged)
+                control.Cursor = CursorToSet;
+        }
+
+        protected virtual void CanvasToolPanel_LocationChanged(object sender, EventArgs e)
+        {
+            if (CanvasScreen.Bounds.Contains(Canvas._CanvasToolPanel.Location))
+                Canvas._CanvasToolPanel.Owner = this;
+        }
+
+        protected void AddControlToChangeItsCursorWhenSelecetdToolChange(Control control)
+        {
+            Canvas._LControlsToChangeTheirCursorWhenSelectedToolIsChanged.Add(control);
         }
 
         private void ParentCanvas_VisibleChanged(object sender, EventArgs e)
@@ -232,7 +267,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
         {
             _PenTool = new StrokePen(Color.Black, 5);
             _EraserTool = new StrokePen(Color.FromArgb(0, 0, 0, 0), 10);
-            SelectedCanvasTool = EnCanvasTools.Pen;
+            SelectCanvasTool(EnCanvasTools.Pen);
         }
 
         private void ParentMsrMainMenu_VisibleChanged(object sender, EventArgs e)
@@ -671,6 +706,11 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
         public float GetPenWidth()
         {
             return Canvas._PenTool.Value.width;
+        }
+
+        private void FormCanvas_Load(object sender, EventArgs e)
+        {
+            RefreshCursors();
         }
     }
 }

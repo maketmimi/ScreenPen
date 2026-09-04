@@ -27,11 +27,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.ScreenShotCanvas
             PbCanvasDisplay.Image = CanvasBitmap;
             RecalculatePbCanvasDisplaySizeAndLocation();
 
-            // Test
-
-            //PbCanvasDisplay.Cursor = new Cursor(new MemoryStream(Resources.PenTest));
-
-            // Test
+            AddControlToChangeItsCursorWhenSelecetdToolChange(PbCanvasDisplay);
 
             PbCanvasDisplay.MouseDown += FormCanvas_MouseDown;
             PbCanvasDisplay.MouseMove += FormCanvas_MouseMove;

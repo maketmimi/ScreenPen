@@ -50,13 +50,13 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             this.CmresetCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CmundoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CmredoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.CmsaveCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.CmshowToolsPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CmsaveCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CmshowMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CmcloseCanvasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.MsrMainMenu.SuspendLayout();
             this.CmsMain.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +206,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             this.CmcloseCanvasToolStripMenuItem});
             this.CmsMain.Name = "CmsMain";
             this.CmsMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.CmsMain.Size = new System.Drawing.Size(181, 198);
+            this.CmsMain.Size = new System.Drawing.Size(171, 176);
             this.CmsMain.Opening += new System.ComponentModel.CancelEventHandler(this.CmsMain_Opening);
             // 
             // CmresetCanvasToolStripMenuItem
@@ -214,7 +214,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             this.CmresetCanvasToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.CmresetCanvasToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.reset;
             this.CmresetCanvasToolStripMenuItem.Name = "CmresetCanvasToolStripMenuItem";
-            this.CmresetCanvasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CmresetCanvasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.CmresetCanvasToolStripMenuItem.Text = "&Reset Canvas";
             this.CmresetCanvasToolStripMenuItem.Click += new System.EventHandler(this.resetCanvasToolStripMenuItem_Click);
             // 
@@ -222,7 +222,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             // 
             this.CmundoToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.undo;
             this.CmundoToolStripMenuItem.Name = "CmundoToolStripMenuItem";
-            this.CmundoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CmundoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.CmundoToolStripMenuItem.Text = "&Undo";
             this.CmundoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
@@ -230,55 +230,55 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             // 
             this.CmredoToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.redo;
             this.CmredoToolStripMenuItem.Name = "CmredoToolStripMenuItem";
-            this.CmredoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CmredoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.CmredoToolStripMenuItem.Text = "&Redo";
             this.CmredoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
-            // toolStripSeparator2
+            // toolStripSeparator5
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
-            // 
-            // CmshowToolsPanelToolStripMenuItem
-            // 
-            this.CmshowToolsPanelToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.ToolsPanel;
-            this.CmshowToolsPanelToolStripMenuItem.Name = "CmshowToolsPanelToolStripMenuItem";
-            this.CmshowToolsPanelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.CmshowToolsPanelToolStripMenuItem.Text = "Show &Tools Panel";
-            this.CmshowToolsPanelToolStripMenuItem.Click += new System.EventHandler(this.showToolsPanelToolStripMenuItem_Click);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(167, 6);
             // 
             // CmsaveCanvasToolStripMenuItem
             // 
             this.CmsaveCanvasToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.Save;
             this.CmsaveCanvasToolStripMenuItem.Name = "CmsaveCanvasToolStripMenuItem";
-            this.CmsaveCanvasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CmsaveCanvasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.CmsaveCanvasToolStripMenuItem.Text = "&Save Canvas";
             this.CmsaveCanvasToolStripMenuItem.Click += new System.EventHandler(this.saveCanvasToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
+            // 
+            // CmshowToolsPanelToolStripMenuItem
+            // 
+            this.CmshowToolsPanelToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.ToolsPanel;
+            this.CmshowToolsPanelToolStripMenuItem.Name = "CmshowToolsPanelToolStripMenuItem";
+            this.CmshowToolsPanelToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.CmshowToolsPanelToolStripMenuItem.Text = "Show &Tools Panel";
+            this.CmshowToolsPanelToolStripMenuItem.Click += new System.EventHandler(this.showToolsPanelToolStripMenuItem_Click);
             // 
             // CmshowMenuToolStripMenuItem
             // 
             this.CmshowMenuToolStripMenuItem.Name = "CmshowMenuToolStripMenuItem";
-            this.CmshowMenuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CmshowMenuToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.CmshowMenuToolStripMenuItem.Text = "Show &Menu";
             this.CmshowMenuToolStripMenuItem.Click += new System.EventHandler(this.showMenuToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(167, 6);
             // 
             // CmcloseCanvasToolStripMenuItem
             // 
             this.CmcloseCanvasToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.close;
             this.CmcloseCanvasToolStripMenuItem.Name = "CmcloseCanvasToolStripMenuItem";
-            this.CmcloseCanvasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CmcloseCanvasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.CmcloseCanvasToolStripMenuItem.Text = "&Close Canvas";
             this.CmcloseCanvasToolStripMenuItem.Click += new System.EventHandler(this.closeCanvasToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // FormCanvas
             // 
@@ -301,6 +301,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCanvas_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCanvas_FormClosed);
+            this.Load += new System.EventHandler(this.FormCanvas_Load);
             this.VisibleChanged += new System.EventHandler(this.FormCanvas_VisibleChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormCanvas_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormCanvas_MouseMove);

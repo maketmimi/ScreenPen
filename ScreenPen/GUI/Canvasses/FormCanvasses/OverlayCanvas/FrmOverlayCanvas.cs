@@ -13,13 +13,18 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             InitializeComponent();
             InitializeCanvasDisplay();
             CanvasToolPanel.Owner = _CanvasDisplay;
-            CanvasBitmapGraphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            OverrideCanvasBitmapGraphicsSettings();
         }
 
         private FrmOverlayCanvas(FrmOverlayCanvas ParentCanvas, Screen CanvasScreen) : base(ParentCanvas, CanvasScreen)
         {
             InitializeComponent();
             InitializeCanvasDisplay();
+            OverrideCanvasBitmapGraphicsSettings();
+        }
+
+        private void OverrideCanvasBitmapGraphicsSettings()
+        {
             CanvasBitmapGraphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
         }
 
@@ -53,6 +58,9 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             _CanvasDisplay.showToolsPanelToolStripMenuItem.Click += this.showToolsPanelToolStripMenuItem_Click;
             _CanvasDisplay.resetCanvasToolStripMenuItem.Click += this.resetCanvasToolStripMenuItem_Click;
             this.MsrMainMenu.VisibleChanged += MsrMainMenu_VisibleChanged;
+
+            // cursors
+            AddControlToChangeItsCursorWhenSelecetdToolChange(_CanvasDisplay.Display);
         }
 
         private void MsrMainMenu_VisibleChanged(object sender, EventArgs e)
