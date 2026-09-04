@@ -132,12 +132,16 @@
   <ItemGroup>
     <Content Include="Assets\AppIcon.png" />
     <Content Include="Assets\EraserTool.png" />
+    <Content Include="Assets\OpenSavedCanvassesFolder.png" />
     <Content Include="Assets\PenTool.png" />
     <Content Include="Assets\reset.png" />
     <Content Include="Assets\close.png" />
     <Content Include="Assets\Save.png" />
     <Content Include="Assets\pen.ico" />
     <Content Include="Assets\redo.png" />
+    <Content Include="Assets\ShowToolsPanel.png" />
+    <Content Include="Assets\StartDrawing.png" />
+    <Content Include="Assets\ToolsPanel.png" />
     <Content Include="Assets\undo.png" />
     <Content Include="pen.ico" />
     <Content Include="Testing\PenTest.cur" />

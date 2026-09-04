@@ -92,7 +92,7 @@ namespace ScreenPen.GUI
         {
             this.Hide();
 
-            // TODO: We must wait for the main form to be hidden before sowing the canvas
+            // TODO: We must wait for the main form to be hidden before showing the canvas
 
             Canvas.ShowCanvas();
         }

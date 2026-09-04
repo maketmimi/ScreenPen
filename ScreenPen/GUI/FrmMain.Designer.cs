@@ -69,6 +69,7 @@
             // 
             // showSavedCanvasesToolStripMenuItem
             // 
+            this.showSavedCanvasesToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.OpenSavedCanvassesFolder;
             this.showSavedCanvasesToolStripMenuItem.Name = "showSavedCanvasesToolStripMenuItem";
             this.showSavedCanvasesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.showSavedCanvasesToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
@@ -77,6 +78,7 @@
             // 
             // startDrawingToolStripMenuItem
             // 
+            this.startDrawingToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.StartDrawing;
             this.startDrawingToolStripMenuItem.Name = "startDrawingToolStripMenuItem";
             this.startDrawingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.startDrawingToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
@@ -97,7 +99,7 @@
             this.alwaysOnTopToolStripMenuItem.CheckOnClick = true;
             this.alwaysOnTopToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alwaysOnTopToolStripMenuItem.Text = "Always on top";
             this.alwaysOnTopToolStripMenuItem.CheckedChanged += new System.EventHandler(this.alwaysOnTopToolStripMenuItem_CheckedChanged);
             // 

@@ -106,6 +106,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             // 
             // saveCanvasToolStripMenuItem
             // 
+            this.saveCanvasToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.Save;
             this.saveCanvasToolStripMenuItem.Name = "saveCanvasToolStripMenuItem";
             this.saveCanvasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveCanvasToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
@@ -113,6 +114,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             // 
             // closeCanvasToolStripMenuItem
             // 
+            this.closeCanvasToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.close;
             this.closeCanvasToolStripMenuItem.Name = "closeCanvasToolStripMenuItem";
             this.closeCanvasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.X)));
@@ -130,17 +132,19 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             // 
             // undoToolStripMenuItem
             // 
+            this.undoToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.undo;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             // 
             // redoToolStripMenuItem
             // 
+            this.redoToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.redo;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Z)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             // 
             // drawingToolStripMenuItem
@@ -155,6 +159,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             // 
             // resetCanvasToolStripMenuItem
             // 
+            this.resetCanvasToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.reset;
             this.resetCanvasToolStripMenuItem.Name = "resetCanvasToolStripMenuItem";
             this.resetCanvasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.R)));
@@ -168,6 +173,7 @@ namespace ScreenPen.GUI.Canvasses.FormCanvasses.OverlayCanvas
             // 
             // showToolsPanelToolStripMenuItem
             // 
+            this.showToolsPanelToolStripMenuItem.Image = global::ScreenPen.Properties.Resources.ToolsPanel;
             this.showToolsPanelToolStripMenuItem.Name = "showToolsPanelToolStripMenuItem";
             this.showToolsPanelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
             this.showToolsPanelToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
