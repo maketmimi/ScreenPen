@@ -99,7 +99,7 @@
             this.alwaysOnTopToolStripMenuItem.CheckOnClick = true;
             this.alwaysOnTopToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.alwaysOnTopToolStripMenuItem.Text = "Always on top";
             this.alwaysOnTopToolStripMenuItem.CheckedChanged += new System.EventHandler(this.alwaysOnTopToolStripMenuItem_CheckedChanged);
             // 
@@ -201,7 +201,7 @@
             this.MainMenuStrip = this.MsrMain;
             this.MaximizeBox = false;
             this.Name = "FrmMain";
-            this.Text = "ScreenPen - Testing Version";
+            this.Text = "ScreenPen";
             this.TopMost = true;
             this.MsrMain.ResumeLayout(false);
             this.MsrMain.PerformLayout();
