@@ -179,7 +179,7 @@ If you find a bug or have an idea for improving ScreenPen, feel free to open an 
 
 ScreenPen is open-source software licensed under the **MIT License**.
 
-See the [LICENSE](LICENSE.txt) file for the full license text.
+See the [LICENSE](LICENSE) file for the full license text.
 
 ---
 
