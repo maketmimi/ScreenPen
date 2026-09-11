@@ -68,7 +68,7 @@ namespace ScreenPen.GUI
 
         private void LibMalekGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/maketmimi");
+            System.Diagnostics.Process.Start("https://altamimi.ly");
             LibMalekGithub.LinkVisited = true;
         }
 

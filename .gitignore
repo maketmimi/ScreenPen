@@ -365,5 +365,4 @@ FodyWeavers.xsd
 # Testing folder
 ScreenPen/Testing/
 
-/ScreenPen/Assets/ShowCase/ScreenPenGIF.mp4
-/ScreenPen/Assets/ShowCase/ScreenPenGIFEdited.mp4
+ScreenPen/Assets/ShowCase/
