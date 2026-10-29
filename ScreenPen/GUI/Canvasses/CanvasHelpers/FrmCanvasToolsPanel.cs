@@ -104,15 +104,22 @@ namespace ScreenPen.GUI.Canvasses.CanvasHelpers
             }
         }
 
+        private Screen GetTheScreenTheToolsPanelOn()
+        {
+            return Screen.FromControl(this);
+        }
+
         public void DockToolsPanelToAboveCenter()
         {
             this.FormBorderStyle = FormBorderStyle.None;
 
-            int ScreenCenterX = Screen.PrimaryScreen.Bounds.Size.Width / 2;
+            Screen ScreenToDockTo = GetTheScreenTheToolsPanelOn();
+
+            int ScreenCenterX = ScreenToDockTo.Bounds.Location.X + (ScreenToDockTo.Bounds.Size.Width / 2);
             int PanelHalfWidth = this.Size.Width / 2;
             int PanelNewX = ScreenCenterX - PanelHalfWidth;
 
-            this.Location = new Point(PanelNewX, 0);
+            this.Location = new Point(PanelNewX, ScreenToDockTo.Bounds.Location.Y);
         }
 
         public void UnDockToolsPanel()

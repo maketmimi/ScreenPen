@@ -178,13 +178,13 @@
             this.dockToAboveToolStripMenuItem});
             this.CmsMain.Name = "CmsMain";
             this.CmsMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.CmsMain.Size = new System.Drawing.Size(154, 26);
+            this.CmsMain.Size = new System.Drawing.Size(181, 48);
             // 
             // dockToAboveToolStripMenuItem
             // 
             this.dockToAboveToolStripMenuItem.CheckOnClick = true;
             this.dockToAboveToolStripMenuItem.Name = "dockToAboveToolStripMenuItem";
-            this.dockToAboveToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.dockToAboveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dockToAboveToolStripMenuItem.Text = "Dock to above ";
             this.dockToAboveToolStripMenuItem.CheckedChanged += new System.EventHandler(this.dockToAboveToolStripMenuItem_CheckedChanged);
             // 
